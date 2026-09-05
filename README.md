@@ -122,7 +122,7 @@ Alongside SEO, I'm expanding into paid media — Google Ads, Meta Ads, YouTube A
         {
           "@type": "EducationalOccupationalCredential",
           "credentialCategory": "degree",
-          "name": "Bachelor of Management Studies (Honours), Marketing Management",
+          "name": "Bachelor of Management Studies (Honours)",
           "recognizedBy": { "@type": "CollegeOrUniversity", "name": "The Open University of Sri Lanka" }
         },
         {
