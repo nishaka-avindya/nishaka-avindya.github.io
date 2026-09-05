@@ -24,7 +24,7 @@ I build SEO tooling in Google Apps Script so that repetitive audits and reportin
 
 ## Background
 
-**The Open University of Sri Lanka** — Bachelor of Management Studies (Honours). Nov 2019 – Nov 2025. Second Class Upper Honours.
+**The Open University of Sri Lanka** — Bachelor of Management Studies (Honours), Marketing Management. Nov 2019 – Nov 2025. Second Class Upper Honours.
 
 **IDM Nations Campus** — Advanced Certificate in HR Management and Marketing Management. Sep 2018 – Mar 2019.
 
@@ -32,19 +32,16 @@ Alongside SEO, I'm expanding into paid media — Google Ads, Meta Ads, YouTube A
 
 ## Elsewhere
 
-| | |
-|---|---|
-| **Website** | [nishakaavindya.com](https://nishakaavindya.com/) |
-| **LinkedIn** | [nishaka-avindya](https://www.linkedin.com/in/nishaka-avindya) |
-| **X** | [@nishaka_avindya](https://x.com/nishaka_avindya) |
-| **YouTube** | [@nishaka_avindya](https://www.youtube.com/@nishaka_avindya) |
-| **GitHub** | [nishaka-avindya](https://github.com/nishaka-avindya) |
-| **Medium** | [nishaka-avindya.medium.com](https://nishaka-avindya.medium.com/) |
-| **Crunchbase** | [nishaka-avindya](https://www.crunchbase.com/people/nishaka-avindya) |
-| **Gravatar** | [nishakaavindya](https://gravatar.com/nishakaavindya) |
-| **Reddit** | [u/nishaka_avindya](https://www.reddit.com/user/nishaka_avindya/) |
-| **Facebook** | [nishaka.avindya](https://www.facebook.com/nishaka.avindya/) |
-| **Instagram** | [@nishaka_avindya](https://www.instagram.com/nishaka_avindya/) |
+- **Website** — [nishakaavindya.com](https://nishakaavindya.com/)
+- **LinkedIn** — [nishaka-avindya](https://www.linkedin.com/in/nishaka-avindya)
+- **X** — [@nishaka_avindya](https://x.com/nishaka_avindya)
+- **YouTube** — [@nishaka_avindya](https://www.youtube.com/@nishaka_avindya)
+- **GitHub** — [nishaka-avindya](https://github.com/nishaka-avindya)
+- **Medium** — [nishaka-avindya.medium.com](https://nishaka-avindya.medium.com/)
+- **Crunchbase** — [nishaka-avindya](https://www.crunchbase.com/people/nishaka-avindya)
+- **Gravatar** — [nishakaavindya](https://gravatar.com/nishakaavindya)
+- **Reddit** — [u/nishaka_avindya](https://www.reddit.com/user/nishaka_avindya/)
+- **Facebook** — [nishaka.avindya](https://www.facebook.com/nishaka.avindya/)
+- **Instagram** — [@nishaka_avindya](https://www.instagram.com/nishaka_avindya/)
 
 ---
-
