@@ -45,3 +45,118 @@ Alongside SEO, I'm expanding into paid media — Google Ads, Meta Ads, YouTube A
 - **Instagram** — [@nishaka_avindya](https://www.instagram.com/nishaka_avindya/)
 
 ---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://nishakaavindya.com/#website",
+      "url": "https://nishakaavindya.com/",
+      "name": "Nishaka Avindya",
+      "publisher": { "@id": "https://nishakaavindya.com/#person" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://nishakaavindya.com/#profilepage",
+      "url": "https://nishakaavindya.com/",
+      "isPartOf": { "@id": "https://nishakaavindya.com/#website" },
+      "mainEntity": { "@id": "https://nishakaavindya.com/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://nishakaavindya.com/#person",
+      "name": "Nishaka Avindya",
+      "url": "https://nishakaavindya.com/",
+      "mainEntityOfPage": { "@id": "https://nishakaavindya.com/#profilepage" },
+ 
+      "jobTitle": "SEO Specialist",
+      "description": "Nishaka Avindya is an SEO Specialist based in Sri Lanka, working across technical SEO, on-page optimization, link acquisition, and visibility in AI answer engines.",
+ 
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kadawatha",
+        "addressRegion": "Western Province",
+        "addressCountry": "LK"
+      },
+      "nationality": { "@type": "Country", "name": "Sri Lanka" },
+ 
+      "knowsAbout": [
+        "Search Engine Optimization",
+        "Technical SEO",
+        "On-Page SEO",
+        "Off-Page SEO",
+        "Link Building",
+        "Keyword Research",
+        "Search Intent Mapping",
+        "Structured Data",
+        "Core Web Vitals",
+        "Crawling and Indexing",
+        "Google Search Console",
+        "Google Analytics",
+        "Ahrefs",
+        "Semrush",
+        "Screaming Frog SEO Spider",
+        "Google Apps Script",
+        "SEO Automation",
+        "Generative Engine Optimization"
+      ],
+ 
+      "knowsLanguage": [
+        { "@type": "Language", "name": "English" },
+        { "@type": "Language", "name": "Sinhala" }
+      ],
+ 
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "The Open University of Sri Lanka",
+          "sameAs": "https://ou.ac.lk/"
+        },
+        { "@type": "EducationalOrganization", "name": "IDM Nations Campus" },
+        { "@type": "EducationalOrganization", "name": "eMinds Academy Australia" }
+      ],
+ 
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "degree",
+          "name": "Bachelor of Management Studies (Honours), Marketing Management",
+          "recognizedBy": { "@type": "CollegeOrUniversity", "name": "The Open University of Sri Lanka" }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "certificate",
+          "name": "Advanced Certificate in HR Management and Marketing Management",
+          "recognizedBy": { "@type": "EducationalOrganization", "name": "IDM Nations Campus" }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "certificate",
+          "name": "Certificate in Practical Digital Marketing & AI",
+          "recognizedBy": { "@type": "EducationalOrganization", "name": "eMinds Academy Australia" }
+        }
+      ],
+ 
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Trident Media Works"
+      },
+ 
+      "sameAs": [
+        "https://www.linkedin.com/in/nishaka-avindya",
+        "https://github.com/nishaka-avindya",
+        "https://x.com/nishaka_avindya",
+        "https://nishaka-avindya.medium.com/",
+        "https://www.youtube.com/@nishaka_avindya",
+        "https://www.reddit.com/user/nishaka_avindya/",
+        "https://gravatar.com/nishakaavindya",
+        "https://www.crunchbase.com/people/nishaka-avindya",
+        "https://www.facebook.com/nishaka.avindya/",
+        "https://www.instagram.com/nishaka_avindya/"
+      ]
+    }
+  ]
+}
+</script>
