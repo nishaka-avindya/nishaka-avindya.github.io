@@ -24,7 +24,7 @@ I build SEO tooling in Google Apps Script so that repetitive audits and reportin
 
 ## Background
 
-I hold a Bachelor of Management Studies (Honours) in Marketing Management from The Open University of Sri Lanka. Alongside SEO, I'm expanding into paid media — Google Ads, Meta Ads, YouTube Ads, and LinkedIn Ads — with the goal of working across both organic and paid search.
+I hold a Bachelor of Management Studies (Honours) from The Open University of Sri Lanka. Alongside SEO, I'm expanding into paid media — Google Ads, Meta Ads, YouTube Ads, and LinkedIn Ads — with the goal of working across both organic and paid search.
 
 ## Elsewhere
 
