@@ -16,8 +16,10 @@
     </div>
   </header>
 
-  <main class="wrap prose">
-    {{ content }}
+  <main class="sheet-wrap">
+    <div class="sheet prose">
+      {{ content }}
+    </div>
   </main>
 
 </body>
