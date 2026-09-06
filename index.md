@@ -26,7 +26,7 @@ Day to day I work in Google Search Console, Google Analytics, Semrush, Ahrefs an
 
 ## Background
 
-**The Open University of Sri Lanka** — Bachelor of Management Studies (Honours), Marketing Management. Nov 2019 – Nov 2025. Second Class Upper Honours.
+**The Open University of Sri Lanka** — Bachelor of Management Studies (Honours). Nov 2019 – Nov 2025. Second Class Upper Honours.
 
 **IDM Nations Campus** — Advanced Certificate in HR Management and Marketing Management. Sep 2018 – Mar 2019.
 
