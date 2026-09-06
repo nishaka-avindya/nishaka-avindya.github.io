@@ -30,7 +30,7 @@ Day to day I work in Google Search Console, Google Analytics, Semrush, Ahrefs an
 
 **IDM Nations Campus** — Advanced Certificate in HR Management and Marketing Management. Sep 2018 – Mar 2019.
 
-Alongside SEO, I'm expanding into paid media — Google Ads, Meta Ads, YouTube Ads, and LinkedIn Ads — with the goal of working across both organic and paid search. I'm studying for the Certificate in Practical Digital Marketing & AI at eMinds Academy Australia, running Aug 2026 to Dec 2026.
+Alongside SEO, I'm expanding into paid media — Google Ads, Meta Ads, YouTube Ads, and LinkedIn Ads — with the goal of working across both organic and paid search. I'm studying for the Certificate in Practical Digital Marketing & AI at **eMinds Academy Australia**, running Aug 2026 to Dec 2026.
 
 ## Elsewhere
 
@@ -38,7 +38,7 @@ Alongside SEO, I'm expanding into paid media — Google Ads, Meta Ads, YouTube A
 - **X** — [@nishaka_avindya](https://x.com/nishaka_avindya)
 - **YouTube** — [@nishaka_avindya](https://www.youtube.com/@nishaka_avindya)
 - **GitHub** — [nishaka-avindya](https://github.com/nishaka-avindya)
-- **Medium** — [nishaka-avindya.medium.com](https://nishaka-avindya.medium.com/)
+- **Medium** — [@nishaka-avindya](https://nishaka-avindya.medium.com/)
 - **Crunchbase** — [nishaka-avindya](https://www.crunchbase.com/people/nishaka-avindya)
 - **Gravatar** — [nishakaavindya](https://gravatar.com/nishakaavindya)
 - **Reddit** — [u/nishaka_avindya](https://www.reddit.com/user/nishaka_avindya/)
