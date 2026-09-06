@@ -1,8 +1,26 @@
+theme: jekyll-theme-primer
+
+title: Nishaka Avindya
 tagline: SEO Specialist in Sri Lanka
 description: >-
-  Nishaka Avindya is an SEO Specialist in Sri Lanka, working across technical SEO, on-page optimization, link building, and AI search visibility.
+  Nishaka Avindya is an SEO Specialist in Sri Lanka, working across
+  technical SEO, on-page optimization, link building, and AI search
+  visibility.
+
 url: https://nishakaavindya.com
+lang: en_US
+
+author: Nishaka Avindya
+twitter:
+  username: nishaka_avindya
+  card: summary
 
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
