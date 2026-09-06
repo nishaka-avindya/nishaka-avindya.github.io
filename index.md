@@ -1,8 +1,6 @@
 ---
-layout: default
+layout: home
 ---
-
-# Nishaka Avindya
 
 I'm Nishaka Avindya, an SEO Specialist based in Sri Lanka. I work across technical SEO, on-page optimization, off-page link acquisition, and search visibility in AI answer engines — and I build SEO automation tools in Google Apps Script.
 
