@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% include head-custom.html %}
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap">
+      <h1>{{ site.title }}</h1>
+      <p class="masthead-tagline">{{ site.tagline }}</p>
+    </div>
+  </header>
+
+  <main class="sheet-wrap">
+    <div class="sheet prose">
+      {{ content }}
+    </div>
+  </main>
+
+</body>
+</html>
