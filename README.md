@@ -32,7 +32,7 @@ I hold a Bachelor of Management Studies (Honours) in Marketing Management from T
 - **LinkedIn** — [nishaka-avindya](https://www.linkedin.com/in/nishaka-avindya)
 - **X** — [@nishaka_avindya](https://x.com/nishaka_avindya)
 - **YouTube** — [@nishaka_avindya](https://www.youtube.com/@nishaka_avindya)
-- **Medium** — [nishaka-avindya.medium.com](https://nishaka-avindya.medium.com/)
+- **Medium** — [@nishaka-avindya](https://nishaka-avindya.medium.com/)
 - **Crunchbase** — [nishaka-avindya](https://www.crunchbase.com/people/nishaka-avindya)
 - **Gravatar** — [nishakaavindya](https://gravatar.com/nishakaavindya)
 - **Reddit** — [u/nishaka_avindya](https://www.reddit.com/user/nishaka_avindya/)
