@@ -15,6 +15,26 @@ twitter:
   username: nishaka_avindya
   card: summary
 
+collections:
+  notes:
+    output: true
+    permalink: /notes/:path/
+  tools:
+    output: true
+    permalink: /tools/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: note
+  - scope:
+      path: ""
+      type: tools
+    values:
+      layout: tool
+
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
