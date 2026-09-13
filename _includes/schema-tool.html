@@ -4,11 +4,14 @@
   "@type": "SoftwareApplication",
   "@id": "{{ page.url | absolute_url }}#tool",
   "name": {{ page.title | jsonify }},
-  "description": {{ page.description | jsonify }},
+  "description": {{ page.description | strip_newlines | strip | jsonify }},
   "url": "{{ page.url | absolute_url }}",
-  "applicationCategory": "SEO Tool",
-  "operatingSystem": "Any (runs in browser)",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "SEO Tool",
+  "operatingSystem": "Any (runs in the browser)",
+  "isPartOf": { "@id": "{{ site.url }}/#website" },
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "creator": { "@id": "{{ site.url }}/#person" }
+  "creator": { "@id": "{{ site.url }}/#person" },
+  "inLanguage": "en"
 }
 </script>

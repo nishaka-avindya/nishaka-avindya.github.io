@@ -1,0 +1,50 @@
+{% assign p = site.data.person %}
+{% if page.url == "/" %}
+  {% assign page_title = site.title | append: " — " | append: site.tagline %}
+{% else %}
+  {% assign page_title = page.title | append: " — " | append: site.title %}
+{% endif %}
+{% if page.description %}
+  {% assign page_description = page.description %}
+{% else %}
+  {% assign page_description = site.description %}
+{% endif %}
+{% assign page_description = page_description | strip_newlines | strip %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ page_description | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+{% if page.sitemap == false %}<meta name="robots" content="noindex, follow">{% endif %}
+
+<meta property="og:type" content="{% if page.layout == 'guide' %}article{% else %}website{% endif %}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ page_title | escape }}">
+<meta property="og:description" content="{{ page_description | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ p.image }}">
+<meta property="og:locale" content="en">
+{% if page.layout == "guide" and page.date %}<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+<meta property="article:author" content="{{ p.name }}">{% endif %}
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@{{ site.twitter.username }}">
+<meta name="twitter:creator" content="@{{ site.twitter.username }}">
+<meta name="twitter:title" content="{{ page_title | escape }}">
+<meta name="twitter:description" content="{{ page_description | escape }}">
+<meta name="twitter:image" content="{{ p.image }}">
+
+<meta name="author" content="{{ p.name }}">
+
+<link rel="preload" href="{{ '/assets/fonts/inter-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/icon.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+{% include schema-person.html %}
+{% if page.layout == "guide" %}{% include schema-guide.html %}{% endif %}
+{% if page.layout == "tool" %}{% include schema-tool.html %}{% endif %}
+{% if page.profile_page %}{% include schema-profilepage.html %}{% endif %}

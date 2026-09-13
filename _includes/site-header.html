@@ -1,0 +1,18 @@
+{% assign p = site.data.person %}
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}"{% if page.url == "/" %} aria-current="page"{% endif %}>
+      <img class="brand-mark" src="{{ '/icon.png' | relative_url }}" alt="" width="36" height="36">
+      <span class="brand-text">
+        <span class="brand-name">{{ p.name }}</span>
+        <span class="brand-role">{{ p.job_title }} · {{ p.country_name }}</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      {% for item in site.data.nav %}
+      <a href="{{ item.url | relative_url }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+  <div class="site-header-accent"></div>
+</header>

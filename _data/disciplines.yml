@@ -1,0 +1,39 @@
+- title: "Technical SEO"
+  icon: "code"
+  body: >-
+    Finding and fixing the crawl, indexing, and rendering issues that stop pages
+    from being discovered or served. Site architecture, Core Web Vitals, and page
+    speed, coordinated with dev teams.
+
+- title: "On-page SEO"
+  icon: "layers"
+  body: >-
+    Meta titles and descriptions, heading structure, URL design, internal linking,
+    and structured data — optimized for traditional search engines, AI-powered
+    search surfaces, and human readers at the same time.
+
+- title: "Off-page SEO and link acquisition"
+  icon: "link"
+  body: >-
+    Backlink profile analysis, disavowing harmful links, prospecting, and outreach,
+    planned from the past months' performance and the brand's promotion plans.
+
+- title: "Keyword research and content SEO"
+  icon: "search"
+  body: >-
+    Keyword research, SERP analysis, competitor research, content audits, and
+    search intent mapping.
+
+- title: "Entity and AI search visibility"
+  icon: "sparkle"
+  body: >-
+    Auditing how brands are described and cited across Google AI Overviews, Google
+    AI Mode, ChatGPT, Gemini, Perplexity, Grok, and Claude — then closing the gap
+    against competitors.
+
+- title: "SEO automation"
+  icon: "chart"
+  body: >-
+    Google Apps Script tooling that turns repetitive audits and reporting into
+    scheduled jobs — crawl data, entity monitoring, and keyword intent mapping,
+    scripted end to end in Google Sheets.

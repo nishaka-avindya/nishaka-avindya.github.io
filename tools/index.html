@@ -1,18 +1,36 @@
 ---
 layout: page
 title: Tools
-tagline: Apps Script tools and browser utilities built from my own audit work.
 permalink: /tools/
+tagline: "Apps Script tooling and small browser utilities built from my own audit work. Nothing uploads — everything runs on your machine or in your own Google account."
+description: "Free SEO tools by Nishaka Avindya — Google Apps Script audit workflows and browser utilities built from live technical SEO work."
 ---
 
-<h2>Apps Script tools</h2>
+{% if site.data.apps_script_tools.size > 0 %}
+<h2 class="section-label" style="margin-top:0">Apps Script tools</h2>
+<div class="tool-grid">
+  {% for t in site.data.apps_script_tools %}
+  <a class="tool-card" href="{{ t.repo }}" rel="noopener" target="_blank">
+    <div class="tool-card-top">{% include icon.html name="wrench" %}<span class="tag tag-outline">{{ t.status | capitalize }}</span></div>
+    <h2>{{ t.name }}</h2>
+    <p>{{ t.blurb }}</p>
+    <span class="tool-card-go">Open on GitHub {% include icon.html name="arrow-up-right" %}</span>
+  </a>
+  {% endfor %}
+</div>
+{% endif %}
 
-<ul class="tool-list">
-{% for tool in site.data.apps_script_tools %}
-  <li class="tool-list-item">
-    <a href="{{ tool.repo }}">{{ tool.name }}</a>
-    <span class="tool-list-status">{{ tool.status | capitalize }} · GitHub repo</span>
-    <p class="tool-list-blurb">{{ tool.blurb }}</p>
-  </li>
-{% endfor %}
-</ul>
+{% assign browser_tools = site.tools | sort: "title" %}
+{% if browser_tools.size > 0 %}
+<h2 class="section-label">Browser tools</h2>
+<div class="tool-grid">
+  {% for t in browser_tools %}
+  <a class="tool-card" href="{{ t.url | relative_url }}">
+    <div class="tool-card-top">{% include icon.html name="search" %}{% if t.status %}<span class="tag tag-outline">{{ t.status | capitalize }}</span>{% endif %}</div>
+    <h2>{{ t.title }}</h2>
+    <p>{{ t.description }}</p>
+    <span class="tool-card-go">Open tool {% include icon.html name="arrow-right" %}</span>
+  </a>
+  {% endfor %}
+</div>
+{% endif %}

@@ -1,0 +1,8 @@
+- label: "Guides"
+  url: "/guides/"
+- label: "Tools"
+  url: "/tools/"
+- label: "About"
+  url: "/about/"
+- label: "Contact"
+  url: "/contact/"

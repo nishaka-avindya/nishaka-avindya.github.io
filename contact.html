@@ -28,25 +28,41 @@ description: "Contact Nishaka Avindya, SEO Specialist in Kadawatha, Sri Lanka, a
         {% endif %}{% endfor %}
       </div>
 
-      {% if p.form_action %}
-      <form class="contact-form" action="{{ p.form_action }}" method="post" style="margin-top:36px;max-width:460px">
+      {% if p.form_action and p.form_action != "" %}
+      <form class="contact-form" action="{{ p.form_action }}" method="POST">
+        <h2 class="section-label">Start a conversation</h2>
+
         <div class="field">
-          <label for="cf-name">Name</label>
+          <label for="cf-name">Your name</label>
           <input class="input" type="text" id="cf-name" name="name" autocomplete="name" required>
         </div>
+
         <div class="field">
           <label for="cf-email">Email</label>
           <input class="input" type="email" id="cf-email" name="email" autocomplete="email" required>
         </div>
+
         <div class="field">
-          <label for="cf-site">Website</label>
-          <input class="input" type="url" id="cf-site" name="website" inputmode="url">
+          <label for="cf-site">Website <span class="field-optional">optional</span></label>
+          <input class="input" type="url" id="cf-site" name="website" inputmode="url" placeholder="https://">
         </div>
+
         <div class="field">
           <label for="cf-message">What's going on</label>
-          <textarea class="input" id="cf-message" name="message" rows="5" required></textarea>
+          <textarea class="input" id="cf-message" name="message" rows="6" required aria-describedby="cf-hint"></textarea>
+          <p class="field-hint" id="cf-hint">The site, the problem as you see it, and what success would look like.</p>
         </div>
+
+        <p class="honeypot" aria-hidden="true">
+          <label for="cf-company">Leave this field empty</label>
+          <input type="text" id="cf-company" name="_gotcha" tabindex="-1" autocomplete="off">
+        </p>
+
+        <input type="hidden" name="_subject" value="New enquiry from nishakaavindya.com">
+        <input type="hidden" name="_next" value="{{ '/contact/thanks/' | absolute_url }}">
+
         <button class="btn btn-primary" type="submit">Send {% include icon.html name="arrow-right" %}</button>
+        <p class="field-hint form-note">Your message goes straight to my inbox. No newsletter, no list, no third-party tracking.</p>
       </form>
       {% endif %}
     </div>

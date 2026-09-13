@@ -1,6 +1,8 @@
 name: "Nishaka Avindya"
 job_title: "SEO Specialist"
 tagline: "SEO Specialist in Sri Lanka"
+eyebrow: "SEO · AI search visibility (GEO/AEO) · Automation"
+headline: "Search work that survives the move to answer engines."
 bio: >-
   Nishaka Avindya is an SEO Specialist in Sri Lanka, working across
   technical SEO, on-page optimization, link building, and AI search
@@ -10,24 +12,55 @@ intro: >-
   technical SEO, on-page optimization, off-page link acquisition, and
   search visibility in AI answer engines — and I build SEO automation
   tools in Google Apps Script.
+since: >-
+  I've worked in search since 2024, and I'm currently Search Engine
+  Optimization Specialist at Trident Media Works.
 locality: "Kadawatha"
 region: "Western Province"
 country: "LK"
 country_name: "Sri Lanka"
 worksFor: "Trident Media Works"
+email: "avindyanish@gmail.com"
+form_action: ""
 url: "https://nishakaavindya.com"
 image: "https://nishakaavindya.com/icon.png"
-sameAs:
-  - "https://www.linkedin.com/in/nishaka-avindya"
-  - "https://github.com/nishaka-avindya"
-  - "https://x.com/nishaka_avindya"
-  - "https://nishaka-avindya.medium.com/"
-  - "https://www.youtube.com/@nishaka_avindya"
-  - "https://www.reddit.com/user/nishaka_avindya/"
-  - "https://gravatar.com/nishakaavindya"
-  - "https://www.crunchbase.com/people/nishaka-avindya"
-  - "https://www.facebook.com/nishaka.avindya/"
-  - "https://www.instagram.com/nishaka_avindya/"
+profiles:
+  - label: "LinkedIn"
+    url: "https://www.linkedin.com/in/nishaka-avindya"
+    icon: "linkedin"
+    featured: true
+  - label: "GitHub"
+    url: "https://github.com/nishaka-avindya"
+    icon: "github"
+    featured: true
+  - label: "Medium"
+    url: "https://nishaka-avindya.medium.com/"
+    icon: "medium"
+    featured: true
+  - label: "YouTube"
+    url: "https://www.youtube.com/@nishaka_avindya"
+    icon: "youtube"
+    featured: true
+  - label: "X"
+    url: "https://x.com/nishaka_avindya"
+    icon: "x"
+    featured: true
+  - label: "Reddit"
+    url: "https://www.reddit.com/user/nishaka_avindya/"
+    icon: "reddit"
+    featured: true
+  - label: "Gravatar"
+    url: "https://gravatar.com/nishakaavindya"
+    icon: "link"
+  - label: "Crunchbase"
+    url: "https://www.crunchbase.com/people/nishaka-avindya"
+    icon: "link"
+  - label: "Facebook"
+    url: "https://www.facebook.com/nishaka.avindya/"
+    icon: "link"
+  - label: "Instagram"
+    url: "https://www.instagram.com/nishaka_avindya/"
+    icon: "link"
 knowsAbout:
   - "Search Engine Optimization"
   - "Technical SEO"
@@ -63,11 +96,35 @@ hasCredential:
     name: "Bachelor of Management Studies (Honours), Marketing Management"
     recognizedBy: "The Open University of Sri Lanka"
     recognizedByType: "CollegeOrUniversity"
+    dates: "Nov 2019 – Nov 2025"
+    detail: "Second Class Upper Honours"
   - category: "certificate"
     name: "Advanced Certificate in HR Management and Marketing Management"
     recognizedBy: "IDM Nations Campus"
     recognizedByType: "EducationalOrganization"
+    dates: "Sep 2018 – Mar 2019"
   - category: "certificate"
     name: "Certificate in Practical Digital Marketing & AI"
     recognizedBy: "eMinds Academy Australia"
     recognizedByType: "EducationalOrganization"
+    dates: "Aug 2026 – Dec 2026"
+    detail: "In progress"
+experience:
+  - org: "Trident Media Works"
+    role: "Search Engine Optimization Specialist"
+    dates: "Aug 2026 – present"
+  - org: "Trident Media Works"
+    role: "SEO Executive"
+    dates: "Aug 2024 – Aug 2026"
+  - org: "EFutures, Colombo"
+    role: "Trainee SEO"
+    dates: "Mar 2024 – Jun 2024"
+toolset:
+  - "Google Search Console"
+  - "Google Analytics"
+  - "Semrush"
+  - "Ahrefs"
+  - "Screaming Frog SEO Spider"
+  - "Google Apps Script"
+  - "Google Sheets"
+  - "HTML & CSS"

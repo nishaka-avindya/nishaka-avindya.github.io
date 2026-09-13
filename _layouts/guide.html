@@ -1,0 +1,101 @@
+---
+layout: default
+---
+<main id="main" class="page-main wrap">
+  <a class="back-link" href="{{ '/guides/' | relative_url }}">{% include icon.html name="arrow-left" %} All guides</a>
+
+  <article>
+    <header class="guide-header">
+      {% if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif %}
+      <h1>{{ page.title }}</h1>
+      {% if page.standfirst %}<p class="guide-standfirst">{{ page.standfirst }}</p>
+      {% elsif page.description %}<p class="guide-standfirst">{{ page.description }}</p>{% endif %}
+
+      <div class="guide-meta">
+        {% if page.date %}
+        <div>
+          <div class="guide-meta-label">Published</div>
+          <div class="guide-meta-value"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></div>
+        </div>
+        {% endif %}
+        <div>
+          <div class="guide-meta-label">Reading time</div>
+          <div class="guide-meta-value">{% assign words = content | number_of_words %}{{ words | divided_by: 200 | plus: 1 }} min</div>
+        </div>
+        {% for m in page.meta %}
+        <div>
+          <div class="guide-meta-label">{{ m.label }}</div>
+          <div class="guide-meta-value">{{ m.value }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </header>
+
+    <div class="prose">
+      {{ content }}
+    </div>
+
+    {% if page.steps %}
+    <section class="prose">
+      <h2>{{ page.steps_title | default: "Run this yourself" }}</h2>
+      <ol class="steps">
+        {% for st in page.steps %}
+        <li>
+          <span class="step-n">{{ forloop.index }}</span>
+          <div>
+            <div class="step-title">{{ st.title }}</div>
+            <p>{{ st.body }}</p>
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+    </section>
+    {% endif %}
+
+    {% if page.faq %}
+    <section class="prose">
+      <h2>{{ page.faq_title | default: "Questions people ask about this" }}</h2>
+      <div class="faq">
+        {% for f in page.faq %}
+        <div>
+          <h3>{{ f.q }}</h3>
+          <p>{{ f.a }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if page.syndication or page.video %}
+    <section class="syndication">
+      <hr class="hr">
+      <h2 class="section-label">Also published as</h2>
+      <p class="syndication-intro">The full guide lives here. Every other version points back to this page as the canonical source.</p>
+      <div class="syndication-grid">
+        {% if page.video %}
+        <div>
+          <div class="syndication-label">{% include icon.html name="play" %} Video walkthrough</div>
+          <div class="video-frame">
+            <iframe src="https://www.youtube-nocookie.com/embed/{{ page.video }}" title="{{ page.title }} — video walkthrough" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+        </div>
+        {% endif %}
+        {% if page.syndication %}
+        <div>
+          <div class="syndication-label">Written briefs</div>
+          <div class="syndication-links">
+            {% for s in page.syndication %}
+            <a href="{{ s.href }}" rel="noopener" target="_blank">
+              {% include icon.html name=s.icon %}
+              <span class="label">{{ s.label }}</span>
+              {% include icon.html name="arrow-up-right" %}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+    {% endif %}
+  </article>
+</main>

@@ -1,30 +1,14 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: 'en' }}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% seo %}
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  {% include head-custom.html %}
-  {% include schema-tool.html %}
-</head>
-<body>
+---
+layout: default
+---
+<main id="main" class="page-main wrap">
+  <a class="back-link" href="{{ '/tools/' | relative_url }}">{% include icon.html name="arrow-left" %} All tools</a>
 
-  <header class="masthead masthead--compact">
-    <div class="wrap">
-      <p class="masthead-eyebrow"><a href="/tools/">Tools</a></p>
-      <h1>{{ page.title }}</h1>
-      {% if page.tagline %}<p class="masthead-tagline">{{ page.tagline }}</p>{% endif %}
-    </div>
-  </header>
+  <h1>{{ page.title }}</h1>
+  {% if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
 
-  <main class="sheet-wrap">
-    <div class="sheet prose prose--note">
-      {{ content }}
-    </div>
-  </main>
-
-  {% if page.script %}<script src="{{ page.script | relative_url }}" defer></script>{% endif %}
-
-</body>
-</html>
+  <div class="prose">
+    {{ content }}
+  </div>
+</main>
+{% if page.script %}<script src="{{ page.script | relative_url }}" defer></script>{% endif %}
