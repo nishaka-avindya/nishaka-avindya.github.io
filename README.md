@@ -24,7 +24,11 @@ I build SEO tooling in Google Apps Script so that repetitive audits and reportin
 
 ## Background
 
-I hold a Bachelor of Management Studies (Honours) from The Open University of Sri Lanka. Alongside SEO, I'm expanding into paid media — Google Ads, Meta Ads, YouTube Ads, and LinkedIn Ads — with the goal of working across both organic and paid search.
+I hold a Bachelor of Management Studies (Honours) from The Open University of Sri Lanka, and I'm currently completing a Certificate in Practical Digital Marketing & AI at eMinds Academy Australia.
+
+## About this repository
+
+This repository is the source for [nishakaavindya.com](https://nishakaavindya.com/) — a Jekyll site published with GitHub Pages. Guides and browser-based SEO tools live in the `_guides` and `_tools` collections; `_data/person.yml` is the single source for every self-description and profile link on the site.
 
 ## Elsewhere
 
