@@ -1,0 +1,61 @@
+name: Content guardrails
+
+on:
+  pull_request:
+    paths:
+      - "_layouts/**"
+      - "_includes/**"
+      - "_notes/**"
+      - "_tools/**"
+      - "_data/**"
+      - "index.md"
+      - "_config.yml"
+  push:
+    branches: [main]
+    paths:
+      - "_layouts/**"
+      - "_includes/**"
+      - "_notes/**"
+      - "_tools/**"
+      - "_data/**"
+      - "index.md"
+      - "_config.yml"
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Block paid-media terms before January 2027
+        run: |
+          CUTOFF="2027-01-01"
+          TODAY=$(date -u +%Y-%m-%d)
+          if [[ "$TODAY" < "$CUTOFF" ]]; then
+            if git diff HEAD~1 HEAD | grep -iE "google ads|meta ads|youtube ads|linkedin ads|\bppc\b|paid media"; then
+              echo "::error::Paid-media terms are not allowed on the hub before January 2027."
+              exit 1
+            fi
+          fi
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install pyyaml
+
+      - name: Check the bio matches its canonical source
+        run: |
+          python3 - <<'PY'
+          import re, sys, yaml
+          person = yaml.safe_load(open("_data/person.yml"))
+          bio = " ".join(person["bio"].split())
+          config = open("_config.yml").read()
+          m = re.search(r"description:\s*>-\s*\n((?:\s+.+\n)+)", config)
+          config_bio = " ".join(m.group(1).split()) if m else ""
+          if bio != config_bio:
+              print("::error::_config.yml's description no longer matches _data/person.yml's bio.")
+              sys.exit(1)
+          PY
