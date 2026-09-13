@@ -1,0 +1,73 @@
+name: "Nishaka Avindya"
+job_title: "SEO Specialist"
+tagline: "SEO Specialist in Sri Lanka"
+bio: >-
+  Nishaka Avindya is an SEO Specialist in Sri Lanka, working across
+  technical SEO, on-page optimization, link building, and AI search
+  visibility.
+intro: >-
+  I'm Nishaka Avindya, an SEO Specialist based in Sri Lanka. I work across
+  technical SEO, on-page optimization, off-page link acquisition, and
+  search visibility in AI answer engines — and I build SEO automation
+  tools in Google Apps Script.
+locality: "Kadawatha"
+region: "Western Province"
+country: "LK"
+country_name: "Sri Lanka"
+worksFor: "Trident Media Works"
+url: "https://nishakaavindya.com"
+image: "https://nishakaavindya.com/icon.png"
+sameAs:
+  - "https://www.linkedin.com/in/nishaka-avindya"
+  - "https://github.com/nishaka-avindya"
+  - "https://x.com/nishaka_avindya"
+  - "https://nishaka-avindya.medium.com/"
+  - "https://www.youtube.com/@nishaka_avindya"
+  - "https://www.reddit.com/user/nishaka_avindya/"
+  - "https://gravatar.com/nishakaavindya"
+  - "https://www.crunchbase.com/people/nishaka-avindya"
+  - "https://www.facebook.com/nishaka.avindya/"
+  - "https://www.instagram.com/nishaka_avindya/"
+knowsAbout:
+  - "Search Engine Optimization"
+  - "Technical SEO"
+  - "On-Page SEO"
+  - "Off-Page SEO"
+  - "Link Building"
+  - "Keyword Research"
+  - "Search Intent Mapping"
+  - "Structured Data"
+  - "Core Web Vitals"
+  - "Crawling and Indexing"
+  - "Google Search Console"
+  - "Google Analytics"
+  - "Ahrefs"
+  - "Semrush"
+  - "Screaming Frog SEO Spider"
+  - "Google Apps Script"
+  - "SEO Automation"
+  - "Generative Engine Optimization"
+knowsLanguage:
+  - "English"
+  - "Sinhala"
+alumniOf:
+  - name: "The Open University of Sri Lanka"
+    type: "CollegeOrUniversity"
+    sameAs: "https://ou.ac.lk/"
+  - name: "IDM Nations Campus"
+    type: "EducationalOrganization"
+  - name: "eMinds Academy Australia"
+    type: "EducationalOrganization"
+hasCredential:
+  - category: "degree"
+    name: "Bachelor of Management Studies (Honours), Marketing Management"
+    recognizedBy: "The Open University of Sri Lanka"
+    recognizedByType: "CollegeOrUniversity"
+  - category: "certificate"
+    name: "Advanced Certificate in HR Management and Marketing Management"
+    recognizedBy: "IDM Nations Campus"
+    recognizedByType: "EducationalOrganization"
+  - category: "certificate"
+    name: "Certificate in Practical Digital Marketing & AI"
+    recognizedBy: "eMinds Academy Australia"
+    recognizedByType: "EducationalOrganization"
