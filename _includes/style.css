@@ -943,7 +943,7 @@ img { max-width: 100%; height: auto; }
 }
 .meter-row .is-over { color: var(--color-warn); }
 
-.contact-form { margin-top: 40px; max-width: 480px; }
+.contact-form { margin-top: 0; max-width: 480px; }
 .contact-form .section-label { margin: 0 0 20px; }
 .contact-form .btn { margin-top: 4px; }
 
@@ -1076,6 +1076,7 @@ textarea.input { resize: vertical; font-family: var(--font-body); }
   .elsewhere a { padding: 4px 0; }
   .site-footer-inner { gap: 32px; padding: 28px 0 20px; }
   .split { gap: 36px; }
+  .lede { margin-bottom: 28px; }
   .fact-panel { padding: 20px; }
   .guide-meta {
     display: grid;
