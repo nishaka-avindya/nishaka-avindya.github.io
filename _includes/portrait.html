@@ -1,0 +1,4 @@
+<picture>
+  <source srcset="{{ '/assets/img/portrait-144.webp' | relative_url }}" type="image/webp">
+  <img class="{{ include.class }}" src="{{ '/assets/img/portrait-144.jpg' | relative_url }}" alt="{{ include.alt }}" width="{{ include.size }}" height="{{ include.size }}"{% if include.loading %} loading="{{ include.loading }}" decoding="async"{% endif %}>
+</picture>

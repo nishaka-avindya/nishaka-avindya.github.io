@@ -2,7 +2,7 @@
 <header class="site-header">
   <div class="site-header-inner">
     <a class="brand" href="{{ '/' | relative_url }}">
-      <img class="brand-mark" src="{{ '/icon.png' | relative_url }}" alt="" width="36" height="36">
+      {% include portrait.html class="brand-mark" size="36" alt="" %}
       <span class="brand-text">
         <span class="brand-name">{{ p.name }}</span>
         <span class="brand-role">{{ p.job_title }} · {{ p.country_name }}</span>

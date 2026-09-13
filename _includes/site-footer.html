@@ -3,7 +3,7 @@
   <hr class="hr">
   <div class="site-footer-inner">
     <div>
-      <img class="footer-portrait" src="{{ '/icon.png' | relative_url }}" alt="{{ p.name }}" width="72" height="72">
+      {% include portrait.html class="footer-portrait" size="72" alt=p.name loading="lazy" %}
       <p class="site-footer-name">{{ p.name }} — {{ p.job_title }}, {{ p.worksFor }}</p>
       <p>Technical SEO, on-page optimization, link acquisition and AI search visibility, working from {{ p.locality }}, {{ p.country_name }}.</p>
       <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Work with me {% include icon.html name="arrow-right" %}</a>
