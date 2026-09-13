@@ -20,10 +20,8 @@
   }
 
   var el = {
-    url: $("t-url"),
     title: $("t-title"),
     desc: $("t-desc"),
-    urlShown: $("t-url-display"),
     titleShown: $("t-title-shown"),
     descShown: $("t-desc-shown"),
     titleChars: $("t-title-chars"),
@@ -34,7 +32,6 @@
     descWidth: $("t-desc-width"),
     descBar: $("t-desc-bar"),
     descNote: $("t-desc-note"),
-    urlMobile: $("t-url-display-m"),
     titleMobile: $("t-title-mobile"),
     descMobile: $("t-desc-mobile"),
     titleLines: $("t-mobile-title-lines"),
@@ -63,22 +60,6 @@
     return cut.replace(/[\s–—\-,.;:]+$/, "") + ellipsis;
   }
 
-  function formatUrl(value) {
-    var raw = (value || "").trim();
-    if (!raw) return "";
-    if (!/^https?:\/\//i.test(raw)) raw = "https://" + raw;
-    try {
-      var u = new URL(raw);
-      var host = u.hostname.replace(/^www\./i, "");
-      var parts = u.pathname.split("/").filter(Boolean).map(function (p) {
-        return decodeURIComponent(p).replace(/[-_]+/g, " ");
-      });
-      return [host].concat(parts).join(" › ");
-    } catch (err) {
-      return raw;
-    }
-  }
-
   function applyMeter(width, limit, barEl, widthEl, noteEl, label) {
     var pct = Math.min(100, Math.round((width / limit) * 100));
     barEl.style.width = pct + "%";
@@ -90,7 +71,11 @@
     barEl.classList.toggle("is-near", near);
     noteEl.classList.toggle("is-over", over);
 
-    if (over) {
+    if (!width) {
+      barEl.style.width = "0%";
+      widthEl.textContent = "0 / " + limit + " px";
+      noteEl.textContent = "Paste a " + label + " to measure it.";
+    } else if (over) {
       noteEl.textContent =
         Math.round(width - limit) + " px over — desktop will cut this " + label + ".";
     } else if (near) {
@@ -113,6 +98,11 @@
   }
 
   function reportLines(node, limit, out, label) {
+    if (!node.textContent) {
+      out.classList.remove("is-over");
+      out.textContent = "";
+      return;
+    }
     var lines = countLines(node);
     var over = lines > limit;
     out.classList.toggle("is-over", over);
@@ -136,10 +126,6 @@
     applyMeter(titleWidth, TITLE_LIMIT, el.titleBar, el.titleWidth, el.titleNote, "title");
     applyMeter(descWidth, DESC_LIMIT, el.descBar, el.descWidth, el.descNote, "description");
 
-    var url = formatUrl(el.url.value);
-    el.urlShown.textContent = url;
-    el.urlMobile.textContent = url;
-
     el.titleShown.textContent = truncate(title, TITLE_FONT, TITLE_LIMIT);
     el.descShown.textContent = truncate(desc, DESC_FONT, DESC_LIMIT);
 
@@ -150,7 +136,6 @@
   }
 
   ["input", "change"].forEach(function (evt) {
-    el.url.addEventListener(evt, update);
     el.title.addEventListener(evt, update);
     el.desc.addEventListener(evt, update);
   });
