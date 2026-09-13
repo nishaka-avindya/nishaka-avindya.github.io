@@ -2,110 +2,69 @@
 <link rel="icon" href="/icon.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+{% assign p = site.data.person %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://nishakaavindya.com/#website",
-      "url": "https://nishakaavindya.com/",
-      "name": "Nishaka Avindya",
-      "publisher": { "@id": "https://nishakaavindya.com/#person" },
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": "{{ p.name }}",
+      "publisher": { "@id": "{{ site.url }}/#person" },
       "inLanguage": "en"
     },
     {
       "@type": "ProfilePage",
-      "@id": "https://nishakaavindya.com/#profilepage",
-      "url": "https://nishakaavindya.com/",
-      "isPartOf": { "@id": "https://nishakaavindya.com/#website" },
-      "mainEntity": { "@id": "https://nishakaavindya.com/#person" }
+      "@id": "{{ site.url }}/#profilepage",
+      "url": "{{ site.url }}/",
+      "isPartOf": { "@id": "{{ site.url }}/#website" },
+      "mainEntity": { "@id": "{{ site.url }}/#person" }
     },
     {
       "@type": "Person",
-      "@id": "https://nishakaavindya.com/#person",
-      "name": "Nishaka Avindya",
-      "url": "https://nishakaavindya.com/",
-      "mainEntityOfPage": { "@id": "https://nishakaavindya.com/#profilepage" },
-      "jobTitle": "SEO Specialist",
-      "image": "https://nishakaavindya.com/icon.png",
-      "description": "Nishaka Avindya is an SEO Specialist in Sri Lanka, working across technical SEO, on-page optimization, link building, and AI search visibility.",
+      "@id": "{{ site.url }}/#person",
+      "name": "{{ p.name }}",
+      "url": "{{ site.url }}/",
+      "mainEntityOfPage": { "@id": "{{ site.url }}/#profilepage" },
+      "jobTitle": "{{ p.job_title }}",
+      "image": "{{ p.image }}",
+      "description": {{ p.bio | jsonify }},
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Kadawatha",
-        "addressRegion": "Western Province",
-        "addressCountry": "LK"
+        "addressLocality": "{{ p.locality }}",
+        "addressRegion": "{{ p.region }}",
+        "addressCountry": "{{ p.country }}"
       },
-      "nationality": { "@type": "Country", "name": "Sri Lanka" },
-      "knowsAbout": [
-        "Search Engine Optimization",
-        "Technical SEO",
-        "On-Page SEO",
-        "Off-Page SEO",
-        "Link Building",
-        "Keyword Research",
-        "Search Intent Mapping",
-        "Structured Data",
-        "Core Web Vitals",
-        "Crawling and Indexing",
-        "Google Search Console",
-        "Google Analytics",
-        "Ahrefs",
-        "Semrush",
-        "Screaming Frog SEO Spider",
-        "Google Apps Script",
-        "SEO Automation",
-        "Generative Engine Optimization"
-      ],
+      "nationality": { "@type": "Country", "name": "{{ p.country_name }}" },
+      "knowsAbout": {{ p.knowsAbout | jsonify }},
       "knowsLanguage": [
-        { "@type": "Language", "name": "English" },
-        { "@type": "Language", "name": "Sinhala" }
+        {% for lang in p.knowsLanguage %}{ "@type": "Language", "name": "{{ lang }}" }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
       ],
       "alumniOf": [
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "The Open University of Sri Lanka",
-          "sameAs": "https://ou.ac.lk/"
-        },
-        { "@type": "EducationalOrganization", "name": "IDM Nations Campus" },
-        { "@type": "EducationalOrganization", "name": "eMinds Academy Australia" }
+        {% for a in p.alumniOf %}{
+          "@type": "{{ a.type }}",
+          "name": "{{ a.name }}"{% if a.sameAs %},
+          "sameAs": "{{ a.sameAs }}"{% endif %}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
       ],
       "hasCredential": [
-        {
+        {% for c in p.hasCredential %}{
           "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "degree",
-          "name": "Bachelor of Management Studies (Honours), Marketing Management",
-          "recognizedBy": { "@type": "CollegeOrUniversity", "name": "The Open University of Sri Lanka" }
-        },
-        {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "certificate",
-          "name": "Advanced Certificate in HR Management and Marketing Management",
-          "recognizedBy": { "@type": "EducationalOrganization", "name": "IDM Nations Campus" }
-        },
-        {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "certificate",
-          "name": "Certificate in Practical Digital Marketing & AI",
-          "recognizedBy": { "@type": "EducationalOrganization", "name": "eMinds Academy Australia" }
-        }
+          "credentialCategory": "{{ c.category }}",
+          "name": "{{ c.name }}",
+          "recognizedBy": { "@type": "{{ c.recognizedByType }}", "name": "{{ c.recognizedBy }}" }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
       ],
       "worksFor": {
         "@type": "Organization",
-        "name": "Trident Media Works"
+        "name": "{{ p.worksFor }}"
       },
-      "sameAs": [
-        "https://www.linkedin.com/in/nishaka-avindya",
-        "https://github.com/nishaka-avindya",
-        "https://x.com/nishaka_avindya",
-        "https://nishaka-avindya.medium.com/",
-        "https://www.youtube.com/@nishaka_avindya",
-        "https://www.reddit.com/user/nishaka_avindya/",
-        "https://gravatar.com/nishakaavindya",
-        "https://www.crunchbase.com/people/nishaka-avindya",
-        "https://www.facebook.com/nishaka.avindya/",
-        "https://www.instagram.com/nishaka_avindya/"
-      ]
+      "sameAs": {{ p.sameAs | jsonify }}
     }
   ]
 }
