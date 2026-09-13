@@ -1,0 +1,17 @@
+---
+layout: page
+title: Notes
+tagline: Technique write-ups from live SEO and AI-visibility work.
+permalink: /notes/
+---
+
+<ul class="note-list">
+{% assign notes = site.notes | sort: "date" | reverse %}
+{% for note in notes %}
+  <li class="note-list-item">
+    <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
+    {% if note.date %}<span class="note-list-date">{{ note.date | date: "%B %-d, %Y" }}</span>{% endif %}
+    {% if note.description %}<p class="note-list-excerpt">{{ note.description }}</p>{% endif %}
+  </li>
+{% endfor %}
+</ul>
