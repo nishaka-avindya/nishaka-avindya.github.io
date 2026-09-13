@@ -53,7 +53,7 @@ jobs:
           person = yaml.safe_load(open("_data/person.yml"))
           bio = " ".join(person["bio"].split())
           config = open("_config.yml").read()
-          m = re.search(r"description:\s*>-\s*\n((?:\s+.+\n)+)", config)
+          m = re.search(r"description:\s*>-\s*\n((?:[ \t]+\S.*\n)+)", config)
           config_bio = " ".join(m.group(1).split()) if m else ""
           if bio != config_bio:
               print("::error::_config.yml's description no longer matches _data/person.yml's bio.")
