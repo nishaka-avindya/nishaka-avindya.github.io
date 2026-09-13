@@ -1,0 +1,18 @@
+---
+layout: page
+title: Tools
+tagline: Apps Script tools and browser utilities built from my own audit work.
+permalink: /tools/
+---
+
+<h2>Apps Script tools</h2>
+
+<ul class="tool-list">
+{% for tool in site.data.apps_script_tools %}
+  <li class="tool-list-item">
+    <a href="{{ tool.repo }}">{{ tool.name }}</a>
+    <span class="tool-list-status">{{ tool.status | capitalize }} · GitHub repo</span>
+    <p class="tool-list-blurb">{{ tool.blurb }}</p>
+  </li>
+{% endfor %}
+</ul>
