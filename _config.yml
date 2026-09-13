@@ -16,9 +16,9 @@ twitter:
   card: summary
 
 collections:
-  notes:
+  guides:
     output: true
-    permalink: /notes/:path/
+    permalink: /guides/:path/
   tools:
     output: true
     permalink: /tools/:path/
@@ -26,9 +26,9 @@ collections:
 defaults:
   - scope:
       path: ""
-      type: notes
+      type: guides
     values:
-      layout: note
+      layout: guide
   - scope:
       path: ""
       type: tools
@@ -36,7 +36,6 @@ defaults:
       layout: tool
 
 plugins:
-  - jekyll-seo-tag
   - jekyll-sitemap
 
 exclude:

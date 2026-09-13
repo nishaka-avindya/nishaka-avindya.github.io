@@ -1,0 +1,74 @@
+---
+layout: home
+---
+
+{% assign p = site.data.person %}
+
+<section class="hero wrap">
+  <p class="eyebrow">{{ p.eyebrow }}</p>
+  <h1>{{ p.headline }}</h1>
+  <p class="hero-lede">{{ p.intro }}</p>
+  <p class="hero-sub">{{ p.since }}</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Get in touch {% include icon.html name="arrow-right" %}</a>
+    <a class="btn btn-secondary" href="{{ '/guides/' | relative_url }}">Read the guides</a>
+  </div>
+</section>
+
+<section class="wrap">
+  <hr class="hr">
+  <h2 class="section-label">What I work on</h2>
+  <div class="card-grid">
+    {% for d in site.data.disciplines %}
+    <div class="discipline">
+      <span class="discipline-icon">{% include icon.html name=d.icon %}</span>
+      <div>
+        <h3>{{ d.title }}</h3>
+        <p>{{ d.body }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% assign guides = site.guides | sort: "date" | reverse %}
+{% if guides.size > 0 %}
+{% assign latest = guides.first %}
+<section class="wrap">
+  <hr class="hr" style="margin-top:64px">
+  <div class="section-head">
+    <h2 class="section-label">Latest guide</h2>
+    <a href="{{ '/guides/' | relative_url }}">All guides {% include icon.html name="arrow-right" %}</a>
+  </div>
+  <a class="feature-card" href="{{ latest.url | relative_url }}">
+    <div>
+      {% if latest.eyebrow %}<p class="eyebrow">{{ latest.eyebrow }}</p>{% endif %}
+      <h3>{{ latest.title }}</h3>
+      <p>{{ latest.description }}</p>
+      <span class="feature-meta">
+        {% if latest.date %}{{ latest.date | date: "%B %Y" }} · {% endif %}
+        {{ latest.content | number_of_words | divided_by: 200 | plus: 1 }} min read
+      </span>
+    </div>
+  </a>
+</section>
+{% endif %}
+
+<section class="wrap">
+  <hr class="hr" style="margin-top:64px">
+  <div class="section-head">
+    <h2 class="section-label">Tools</h2>
+    <a href="{{ '/tools/' | relative_url }}">All tools {% include icon.html name="arrow-right" %}</a>
+  </div>
+  <p class="hero-sub">Apps Script tooling and small browser utilities built from my own audit work.</p>
+  <div class="tool-grid">
+    {% for t in site.data.apps_script_tools %}
+    <a class="tool-card" href="{{ t.repo }}" rel="noopener" target="_blank">
+      <div class="tool-card-top">{% include icon.html name="wrench" %}<span class="tag tag-outline">{{ t.status | capitalize }}</span></div>
+      <h3>{{ t.name }}</h3>
+      <p>{{ t.blurb }}</p>
+      <span class="tool-card-go">Open on GitHub {% include icon.html name="arrow-up-right" %}</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>

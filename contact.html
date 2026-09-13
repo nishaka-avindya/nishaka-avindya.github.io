@@ -1,0 +1,78 @@
+---
+layout: default
+title: Get in touch
+permalink: /contact/
+description: "Contact Nishaka Avindya, SEO Specialist in Kadawatha, Sri Lanka, about technical SEO, AI search visibility, or SEO automation work."
+---
+
+{% assign p = site.data.person %}
+
+<main id="main" class="page-main wrap">
+  <h1>Get in touch</h1>
+  <p class="lede">Tell me the site, the problem as you see it, and what success would look like. I reply within two working days, and I'll say plainly if it isn't work I'm the right person for.</p>
+
+  <div class="split">
+    <div>
+      <div class="syndication-links" style="max-width:460px">
+        <a href="mailto:{{ p.email }}">
+          {% include icon.html name="envelope" %}
+          <span class="label">{{ p.email }}</span>
+          {% include icon.html name="arrow-right" %}
+        </a>
+        {% for prof in p.profiles %}{% if prof.label == "LinkedIn" %}
+        <a href="{{ prof.url }}" rel="me noopener" target="_blank">
+          {% include icon.html name="linkedin" %}
+          <span class="label">Connect on LinkedIn</span>
+          {% include icon.html name="arrow-up-right" %}
+        </a>
+        {% endif %}{% endfor %}
+      </div>
+
+      {% if p.form_action %}
+      <form class="contact-form" action="{{ p.form_action }}" method="post" style="margin-top:36px;max-width:460px">
+        <div class="field">
+          <label for="cf-name">Name</label>
+          <input class="input" type="text" id="cf-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input class="input" type="email" id="cf-email" name="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="cf-site">Website</label>
+          <input class="input" type="url" id="cf-site" name="website" inputmode="url">
+        </div>
+        <div class="field">
+          <label for="cf-message">What's going on</label>
+          <textarea class="input" id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Send {% include icon.html name="arrow-right" %}</button>
+      </form>
+      {% endif %}
+    </div>
+
+    <aside>
+      <div class="panel">
+        <h2>What I can help with</h2>
+        <dl class="detail-list">
+          <div>
+            <dt>Technical SEO</dt>
+            <dd>Crawl, indexing and rendering diagnosis<span>Including JavaScript rendering and migration recovery</span></dd>
+          </div>
+          <div>
+            <dt>AI search visibility</dt>
+            <dd>Auditing how a brand is described and cited in answer engines<span>AI Overviews, AI Mode, ChatGPT, Gemini, Perplexity, Grok, Claude</span></dd>
+          </div>
+          <div>
+            <dt>SEO automation</dt>
+            <dd>Google Apps Script tooling for audits and reporting<span>Crawl data, entity monitoring, keyword intent mapping</span></dd>
+          </div>
+          <div>
+            <dt>Based in</dt>
+            <dd>{{ p.locality }}, {{ p.country_name }}<span>Working with teams in any timezone</span></dd>
+          </div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+</main>

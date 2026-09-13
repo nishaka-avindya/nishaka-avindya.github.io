@@ -1,11 +1,17 @@
 ---
-layout: home
+layout: default
 title: Page not found
+permalink: /404.html
 sitemap: false
+description: "That page doesn't exist on nishakaavindya.com."
 ---
 
-<h1>Page not found</h1>
-
-<p>That page doesn't exist — it may have moved, or the link may be wrong.</p>
-
-<p><a href="/">Return to the Homepage</a></p>
+<main id="main" class="page-main wrap">
+  <p class="eyebrow">Error 404</p>
+  <h1>Page not found</h1>
+  <p class="lede">That page doesn't exist — it may have moved, or the link may be wrong.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="{{ '/' | relative_url }}">Back to the homepage {% include icon.html name="arrow-right" %}</a>
+    <a class="btn btn-secondary" href="{{ '/guides/' | relative_url }}">Browse the guides</a>
+  </div>
+</main>
