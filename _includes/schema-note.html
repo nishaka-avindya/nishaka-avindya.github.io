@@ -1,0 +1,15 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "@id": "{{ page.url | absolute_url }}#article",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "url": "{{ page.url | absolute_url }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "author": { "@id": "{{ site.url }}/#person" },
+  "publisher": { "@id": "{{ site.url }}/#person" },
+  "mainEntityOfPage": "{{ page.url | absolute_url }}"
+  {% if page.keywords %},"keywords": {{ page.keywords | jsonify }}{% endif %}
+}
+</script>
