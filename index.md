@@ -2,7 +2,7 @@
 layout: home
 ---
 
-I'm Nishaka Avindya, an SEO Specialist based in Sri Lanka. I work across technical SEO, on-page optimization, off-page link acquisition, and search visibility in AI answer engines — and I build SEO automation tools in Google Apps Script.
+{{ site.data.person.intro }}
 
 I've worked in search since 2024, and I'm currently Search Engine Optimization Specialist at Trident Media Works.
 
@@ -18,6 +18,14 @@ I've worked in search since 2024, and I'm currently Search Engine Optimization S
 
 **Entity and AI search visibility.** Auditing how brands are described and cited across Google AI Overviews, Google AI Mode, ChatGPT, Gemini, Perplexity, Grok, and Claude — then closing the gap against competitors.
 
+## Notes
+
+Technique write-ups from live SEO and AI-visibility work — [browse all notes](/notes/).
+
+## Tools
+
+Apps Script tools and browser utilities built from my own audit work — [browse all tools](/tools/).
+
 ## How I work
 
 I build SEO tooling in Google Apps Script so that repetitive audits and reporting run themselves rather than eating a day each month. Crawl data, entity monitoring, and keyword intent mapping all live in Google Sheets, scripted end to end.
@@ -30,17 +38,4 @@ Day to day I work in Google Search Console, Google Analytics, Semrush, Ahrefs an
 
 **IDM Nations Campus** — Advanced Certificate in HR Management and Marketing Management. Sep 2018 – Mar 2019.
 
-Alongside SEO, I'm expanding into paid media — Google Ads, Meta Ads, YouTube Ads, and LinkedIn Ads — with the goal of working across both organic and paid search. I'm studying for the Certificate in Practical Digital Marketing & AI at **eMinds Academy Australia**, running Aug 2026 to Dec 2026.
-
-## Elsewhere
-
-- **LinkedIn** — [nishaka-avindya](https://www.linkedin.com/in/nishaka-avindya)
-- **X** — [@nishaka_avindya](https://x.com/nishaka_avindya)
-- **YouTube** — [@nishaka_avindya](https://www.youtube.com/@nishaka_avindya)
-- **GitHub** — [nishaka-avindya](https://github.com/nishaka-avindya)
-- **Medium** — [@nishaka-avindya](https://nishaka-avindya.medium.com/)
-- **Crunchbase** — [nishaka-avindya](https://www.crunchbase.com/people/nishaka-avindya)
-- **Gravatar** — [nishakaavindya](https://gravatar.com/nishakaavindya)
-- **Reddit** — [u/nishaka_avindya](https://www.reddit.com/user/nishaka_avindya/)
-- **Facebook** — [nishaka.avindya](https://www.facebook.com/nishaka.avindya/)
-- **Instagram** — [@nishaka_avindya](https://www.instagram.com/nishaka_avindya/)
+I'm studying for the Certificate in Practical Digital Marketing & AI at **eMinds Academy Australia**, running Aug 2026 to Dec 2026.
