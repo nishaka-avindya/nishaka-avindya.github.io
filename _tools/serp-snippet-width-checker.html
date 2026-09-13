@@ -1,13 +1,14 @@
 ---
 title: "SERP snippet width checker"
-description: "Google truncates titles and meta descriptions by pixel width, not character count. Paste a title and description to see where they will be cut on desktop, and what the result looks like."
+description: "Google truncates meta titles and descriptions by pixel width on desktop and by line count on mobile. Paste yours to see where each one gets cut, and what the result looks like on both."
 status: "live"
 script: "/assets/js/tools/serp-snippet-width-checker.js"
 keywords:
   - SERP snippet
-  - Title tag length
+  - Meta title length
   - Meta description length
   - Pixel width
+  - Mobile SERP
 ---
 
 <div class="tool-grid-2" data-serp-tool>
@@ -18,8 +19,8 @@ keywords:
     </div>
 
     <div class="field">
-      <label for="t-title">Title tag</label>
-      <input class="input" type="text" id="t-title" value="The Screaming Frog custom search filters I run on every audit">
+      <label for="t-title">Meta Title</label>
+      <input class="input" type="text" id="t-title" value="Screaming Frog Custom Search: Using Multiple Filters to Find Stale Content">
       <div class="meter-row">
         <span id="t-title-chars">0 characters</span>
         <span id="t-title-width">0 / 580 px</span>
@@ -30,7 +31,7 @@ keywords:
 
     <div class="field">
       <label for="t-desc">Meta description</label>
-      <textarea class="input" id="t-desc" rows="4">The Custom Search configs that catch technical issues Screaming Frog's default crawl overview won't flag, and how to read what they turn up.</textarea>
+      <textarea class="input" id="t-desc" rows="4">How to use Screaming Frog's Custom Search with multiple filters to find content that used to be correct and no longer is.</textarea>
       <div class="meter-row">
         <span id="t-desc-chars">0 characters</span>
         <span id="t-desc-width">0 / 990 px</span>
@@ -47,8 +48,21 @@ keywords:
       <div class="serp-title" id="t-title-shown"></div>
       <div class="serp-desc" id="t-desc-shown"></div>
     </div>
-    <p class="preview-note">Widths are measured with the metrics Google uses on desktop results: 20px Arial for the title, 14px Arial for the description. Mobile truncates earlier and rewrite rates are high on both — treat the limit as a ceiling, not a target.</p>
-    <noscript><p class="preview-note">This preview needs JavaScript. The limits and the method are written out below and work without it.</p></noscript>
+    <p class="preview-note">Desktop cuts by pixel width: roughly 580px for the title and 990px for the description, measured in Arial at 20px and 14px.</p>
+
+    <div class="preview-label" style="margin-top:32px">Mobile preview</div>
+    <div class="serp-card serp-card--mobile">
+      <div class="serp-url serp-url--mobile" id="t-url-display-m">nishakaavindya.com › guides</div>
+      <div class="serp-title serp-title--mobile" id="t-title-mobile"></div>
+      <div class="serp-desc serp-desc--mobile" id="t-desc-mobile"></div>
+    </div>
+    <div class="meter-row" style="max-width:360px">
+      <span id="t-mobile-title-lines"></span>
+      <span id="t-mobile-desc-lines"></span>
+    </div>
+    <p class="preview-note">Mobile cuts by line count, not a single pixel ceiling: about two lines for the title and three for the description, inside a narrow column. A title that survives on desktop can still lose its last few words here.</p>
+
+    <noscript><p class="preview-note">Both previews need JavaScript. The limits and the method are written out below and work without it.</p></noscript>
   </div>
 </div>
 
@@ -56,9 +70,15 @@ keywords:
 
 <h2>Why character counts mislead you</h2>
 
-<p>Google does not count characters. It renders your title and description into a fixed-width container and cuts whatever does not fit. A title of 60 capital W's is roughly twice as wide as 60 lowercase i's, so two titles of identical length can produce completely different snippets — one intact, one truncated mid-word.</p>
+<p>Google does not count characters. It renders your title and description into a fixed container and cuts whatever does not fit. A title of 60 capital W's is roughly twice as wide as 60 lowercase i's, so two titles of identical length can produce completely different snippets — one intact, one truncated mid-word.</p>
 
 <p>The practical limits on desktop results are about <strong>580 pixels</strong> for the title and about <strong>990 pixels</strong> for the description, measured in Arial at 20px and 14px respectively. That works out to roughly 55–60 characters and 150–160 characters for average English text, which is where the familiar character-count rules of thumb come from. Those rules break down the moment your title is unusually wide or unusually narrow — brand names in caps, long compound words, or a lot of capital letters will hit the ceiling well before the character count suggests.</p>
+
+<h2>Mobile truncates differently, and usually earlier</h2>
+
+<p>Mobile results do not use a single pixel ceiling. The snippet sits in a narrow column and wraps, and Google clamps it after a set number of lines — commonly two for the title and three for the description. That means the thing that matters on mobile is not total width but where the line breaks fall. A long word near the limit can push a whole phrase onto a fourth line and lose it entirely.</p>
+
+<p>Since most searches happen on mobile, check the mobile preview first and treat the desktop pixel meters as the secondary constraint. If a title fits in two mobile lines it will almost always fit on desktop too.</p>
 
 <h2>What the limit actually buys you</h2>
 
@@ -68,7 +88,7 @@ keywords:
 
 <h2>How to use this</h2>
 
-<p>Paste the title and description you are about to ship. If the bar goes over, the preview shows you exactly what the user will see, including where the cut lands. Fix the ones where the truncation destroys meaning, and leave the ones where it does not — a description cut after a complete clause still reads fine.</p>
+<p>Paste the meta title and description you are about to ship. If a bar goes over, or the mobile preview clamps, you can see exactly what the searcher will be left with. Fix the ones where truncation destroys meaning, and leave the ones where it does not — a description cut after a complete clause still reads fine.</p>
 
 <p>Everything here runs in your browser. Nothing is uploaded, stored, or sent anywhere.</p>
 

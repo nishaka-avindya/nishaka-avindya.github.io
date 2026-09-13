@@ -40,7 +40,8 @@
 <script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light"){document.documentElement.setAttribute("data-theme",t)}}catch(e){}</script>
 
 <link rel="preload" href="{{ '/assets/fonts/inter-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+{% capture inline_css %}{% include style.css %}{% endcapture %}
+<style>{{ inline_css | strip_newlines }}</style>
 
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/icon.png" type="image/png" sizes="512x512">

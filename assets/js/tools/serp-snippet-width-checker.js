@@ -5,6 +5,8 @@
   var DESC_LIMIT = 990;
   var TITLE_FONT = "20px Arial, sans-serif";
   var DESC_FONT = "14px Arial, sans-serif";
+  var MOBILE_TITLE_LINES = 2;
+  var MOBILE_DESC_LINES = 3;
 
   var root = document.querySelector("[data-serp-tool]");
   if (!root) return;
@@ -13,21 +15,30 @@
   var ctx = canvas.getContext("2d");
   if (!ctx) return;
 
+  function $(id) {
+    return document.getElementById(id);
+  }
+
   var el = {
-    url: document.getElementById("t-url"),
-    title: document.getElementById("t-title"),
-    desc: document.getElementById("t-desc"),
-    urlShown: document.getElementById("t-url-display"),
-    titleShown: document.getElementById("t-title-shown"),
-    descShown: document.getElementById("t-desc-shown"),
-    titleChars: document.getElementById("t-title-chars"),
-    titleWidth: document.getElementById("t-title-width"),
-    titleBar: document.getElementById("t-title-bar"),
-    titleNote: document.getElementById("t-title-note"),
-    descChars: document.getElementById("t-desc-chars"),
-    descWidth: document.getElementById("t-desc-width"),
-    descBar: document.getElementById("t-desc-bar"),
-    descNote: document.getElementById("t-desc-note")
+    url: $("t-url"),
+    title: $("t-title"),
+    desc: $("t-desc"),
+    urlShown: $("t-url-display"),
+    titleShown: $("t-title-shown"),
+    descShown: $("t-desc-shown"),
+    titleChars: $("t-title-chars"),
+    titleWidth: $("t-title-width"),
+    titleBar: $("t-title-bar"),
+    titleNote: $("t-title-note"),
+    descChars: $("t-desc-chars"),
+    descWidth: $("t-desc-width"),
+    descBar: $("t-desc-bar"),
+    descNote: $("t-desc-note"),
+    urlMobile: $("t-url-display-m"),
+    titleMobile: $("t-title-mobile"),
+    descMobile: $("t-desc-mobile"),
+    titleLines: $("t-mobile-title-lines"),
+    descLines: $("t-mobile-desc-lines")
   };
 
   function measure(text, font) {
@@ -78,17 +89,36 @@
     barEl.classList.toggle("is-over", over);
     barEl.classList.toggle("is-near", near);
     noteEl.classList.toggle("is-over", over);
-    noteEl.classList.toggle("is-near", near);
 
     if (over) {
       noteEl.textContent =
-        Math.round(width - limit) + " px over — Google will cut this " + label + ".";
+        Math.round(width - limit) + " px over — desktop will cut this " + label + ".";
     } else if (near) {
       noteEl.textContent =
         Math.round(limit - width) + " px left. Close enough that a rendering difference could push it over.";
     } else {
-      noteEl.textContent = Math.round(limit - width) + " px to spare.";
+      noteEl.textContent = Math.round(limit - width) + " px to spare on desktop.";
     }
+  }
+
+  function countLines(node) {
+    var cs = window.getComputedStyle(node);
+    var lh = parseFloat(cs.lineHeight);
+    if (!lh || isNaN(lh)) lh = parseFloat(cs.fontSize) * 1.3;
+    var prev = node.style.webkitLineClamp;
+    node.style.webkitLineClamp = "unset";
+    var lines = Math.round(node.scrollHeight / lh);
+    node.style.webkitLineClamp = prev;
+    return Math.max(lines, 1);
+  }
+
+  function reportLines(node, limit, out, label) {
+    var lines = countLines(node);
+    var over = lines > limit;
+    out.classList.toggle("is-over", over);
+    out.textContent = over
+      ? label + ": " + lines + " lines — cut after " + limit
+      : label + ": " + lines + " of " + limit + " lines";
   }
 
   function update() {
@@ -106,9 +136,17 @@
     applyMeter(titleWidth, TITLE_LIMIT, el.titleBar, el.titleWidth, el.titleNote, "title");
     applyMeter(descWidth, DESC_LIMIT, el.descBar, el.descWidth, el.descNote, "description");
 
-    el.urlShown.textContent = formatUrl(el.url.value);
+    var url = formatUrl(el.url.value);
+    el.urlShown.textContent = url;
+    el.urlMobile.textContent = url;
+
     el.titleShown.textContent = truncate(title, TITLE_FONT, TITLE_LIMIT);
     el.descShown.textContent = truncate(desc, DESC_FONT, DESC_LIMIT);
+
+    el.titleMobile.textContent = title;
+    el.descMobile.textContent = desc;
+    reportLines(el.titleMobile, MOBILE_TITLE_LINES, el.titleLines, "Title");
+    reportLines(el.descMobile, MOBILE_DESC_LINES, el.descLines, "Description");
   }
 
   ["input", "change"].forEach(function (evt) {
