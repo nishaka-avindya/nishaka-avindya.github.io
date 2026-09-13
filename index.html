@@ -60,8 +60,16 @@ layout: home
     <h2 class="section-label">Tools</h2>
     <a href="{{ '/tools/' | relative_url }}">All tools {% include icon.html name="arrow-right" %}</a>
   </div>
-  <p class="hero-sub">Apps Script tooling and small browser utilities built from my own audit work.</p>
+  <p class="hero-sub">Apps Script tooling and small browser utilities built from my own audit work. Nothing uploads — everything runs on your machine.</p>
   <div class="tool-grid">
+    {% for t in site.tools %}
+    <a class="tool-card" href="{{ t.url | relative_url }}">
+      <div class="tool-card-top">{% include icon.html name="search" %}{% if t.status %}<span class="tag tag-outline">{{ t.status | capitalize }}</span>{% endif %}</div>
+      <h3>{{ t.title }}</h3>
+      <p>{{ t.description }}</p>
+      <span class="tool-card-go">Open tool {% include icon.html name="arrow-right" %}</span>
+    </a>
+    {% endfor %}
     {% for t in site.data.apps_script_tools %}
     <a class="tool-card" href="{{ t.repo }}" rel="noopener" target="_blank">
       <div class="tool-card-top">{% include icon.html name="wrench" %}<span class="tag tag-outline">{{ t.status | capitalize }}</span></div>

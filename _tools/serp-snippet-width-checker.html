@@ -1,0 +1,75 @@
+---
+title: "SERP snippet width checker"
+description: "Google truncates titles and meta descriptions by pixel width, not character count. Paste a title and description to see where they will be cut on desktop, and what the result looks like."
+status: "live"
+script: "/assets/js/tools/serp-snippet-width-checker.js"
+keywords:
+  - SERP snippet
+  - Title tag length
+  - Meta description length
+  - Pixel width
+---
+
+<div class="tool-grid-2" data-serp-tool>
+  <div class="tool-controls">
+    <div class="field">
+      <label for="t-url">Page URL</label>
+      <input class="input" type="url" id="t-url" inputmode="url" spellcheck="false" value="https://nishakaavindya.com/guides/">
+    </div>
+
+    <div class="field">
+      <label for="t-title">Title tag</label>
+      <input class="input" type="text" id="t-title" value="The Screaming Frog custom search filters I run on every audit">
+      <div class="meter-row">
+        <span id="t-title-chars">0 characters</span>
+        <span id="t-title-width">0 / 580 px</span>
+      </div>
+      <div class="meter"><div class="meter-fill" id="t-title-bar"></div></div>
+      <p class="meter-note" id="t-title-note"></p>
+    </div>
+
+    <div class="field">
+      <label for="t-desc">Meta description</label>
+      <textarea class="input" id="t-desc" rows="4">The Custom Search configs that catch technical issues Screaming Frog's default crawl overview won't flag, and how to read what they turn up.</textarea>
+      <div class="meter-row">
+        <span id="t-desc-chars">0 characters</span>
+        <span id="t-desc-width">0 / 990 px</span>
+      </div>
+      <div class="meter"><div class="meter-fill" id="t-desc-bar"></div></div>
+      <p class="meter-note" id="t-desc-note"></p>
+    </div>
+  </div>
+
+  <div class="tool-preview">
+    <div class="preview-label">Desktop preview</div>
+    <div class="serp-card">
+      <div class="serp-url" id="t-url-display">nishakaavindya.com › guides</div>
+      <div class="serp-title" id="t-title-shown"></div>
+      <div class="serp-desc" id="t-desc-shown"></div>
+    </div>
+    <p class="preview-note">Widths are measured with the metrics Google uses on desktop results: 20px Arial for the title, 14px Arial for the description. Mobile truncates earlier and rewrite rates are high on both — treat the limit as a ceiling, not a target.</p>
+    <noscript><p class="preview-note">This preview needs JavaScript. The limits and the method are written out below and work without it.</p></noscript>
+  </div>
+</div>
+
+<div class="prose">
+
+<h2>Why character counts mislead you</h2>
+
+<p>Google does not count characters. It renders your title and description into a fixed-width container and cuts whatever does not fit. A title of 60 capital W's is roughly twice as wide as 60 lowercase i's, so two titles of identical length can produce completely different snippets — one intact, one truncated mid-word.</p>
+
+<p>The practical limits on desktop results are about <strong>580 pixels</strong> for the title and about <strong>990 pixels</strong> for the description, measured in Arial at 20px and 14px respectively. That works out to roughly 55–60 characters and 150–160 characters for average English text, which is where the familiar character-count rules of thumb come from. Those rules break down the moment your title is unusually wide or unusually narrow — brand names in caps, long compound words, or a lot of capital letters will hit the ceiling well before the character count suggests.</p>
+
+<h2>What the limit actually buys you</h2>
+
+<p>Staying under the limit is not the same as ranking better. Truncation is not a ranking factor; it is a click-through problem. A title cut mid-phrase loses whatever you put at the end, and the end is usually where the qualifier lives — the year, the location, the differentiator. Front-load the part you cannot afford to lose and treat the rest as expendable.</p>
+
+<p>The bigger caveat is rewriting. Google replaces titles on a substantial share of queries and rewrites meta descriptions on the majority of them, usually pulling a passage from the page that matches the query more closely than your description did. So the description is a suggestion, not a specification. Write it to be the best possible answer for your primary query and accept that Google will often go and find its own.</p>
+
+<h2>How to use this</h2>
+
+<p>Paste the title and description you are about to ship. If the bar goes over, the preview shows you exactly what the user will see, including where the cut lands. Fix the ones where the truncation destroys meaning, and leave the ones where it does not — a description cut after a complete clause still reads fine.</p>
+
+<p>Everything here runs in your browser. Nothing is uploaded, stored, or sent anywhere.</p>
+
+</div>
