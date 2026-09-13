@@ -1,7 +1,7 @@
 {% assign p = site.data.person %}
 <header class="site-header">
   <div class="site-header-inner">
-    <a class="brand" href="{{ '/' | relative_url }}"{% if page.url == "/" %} aria-current="page"{% endif %}>
+    <a class="brand" href="{{ '/' | relative_url }}">
       <img class="brand-mark" src="{{ '/icon.png' | relative_url }}" alt="" width="36" height="36">
       <span class="brand-text">
         <span class="brand-name">{{ p.name }}</span>
@@ -10,9 +10,19 @@
     </a>
     <nav class="site-nav" aria-label="Primary">
       {% for item in site.data.nav %}
-      <a href="{{ item.url | relative_url }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>
+        {% assign is_current = false %}
+        {% if item.url == "/" %}
+          {% if page.url == "/" %}{% assign is_current = true %}{% endif %}
+        {% elsif page.url contains item.url %}
+          {% assign is_current = true %}
+        {% endif %}
+      <a href="{{ item.url | relative_url }}"{% if is_current %} aria-current="page"{% endif %}>{{ item.label }}</a>
       {% endfor %}
     </nav>
+    <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch to dark theme" title="Switch theme">
+      <span class="theme-icon theme-icon--moon">{% include icon.html name="moon" %}</span>
+      <span class="theme-icon theme-icon--sun">{% include icon.html name="sun" %}</span>
+    </button>
   </div>
   <div class="site-header-accent"></div>
 </header>

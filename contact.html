@@ -13,25 +13,8 @@ description: "Contact Nishaka Avindya, SEO Specialist in Kadawatha, Sri Lanka, a
 
   <div class="split">
     <div>
-      <div class="syndication-links" style="max-width:460px">
-        <a href="mailto:{{ p.email }}">
-          {% include icon.html name="envelope" %}
-          <span class="label">{{ p.email }}</span>
-          {% include icon.html name="arrow-right" %}
-        </a>
-        {% for prof in p.profiles %}{% if prof.label == "LinkedIn" %}
-        <a href="{{ prof.url }}" rel="me noopener" target="_blank">
-          {% include icon.html name="linkedin" %}
-          <span class="label">Connect on LinkedIn</span>
-          {% include icon.html name="arrow-up-right" %}
-        </a>
-        {% endif %}{% endfor %}
-      </div>
-
       {% if p.form_action and p.form_action != "" %}
       <form class="contact-form" action="{{ p.form_action }}" method="POST">
-        <h2 class="section-label">Start a conversation</h2>
-
         <div class="field">
           <label for="cf-name">Your name</label>
           <input class="input" type="text" id="cf-name" name="name" autocomplete="name" required>
@@ -43,14 +26,13 @@ description: "Contact Nishaka Avindya, SEO Specialist in Kadawatha, Sri Lanka, a
         </div>
 
         <div class="field">
-          <label for="cf-site">Website <span class="field-optional">optional</span></label>
-          <input class="input" type="url" id="cf-site" name="website" inputmode="url" placeholder="https://">
+          <label for="cf-site">Website</label>
+          <input class="input" type="url" id="cf-site" name="website" inputmode="url" placeholder="https://" required>
         </div>
 
         <div class="field">
           <label for="cf-message">What's going on</label>
-          <textarea class="input" id="cf-message" name="message" rows="6" required aria-describedby="cf-hint"></textarea>
-          <p class="field-hint" id="cf-hint">The site, the problem as you see it, and what success would look like.</p>
+          <textarea class="input" id="cf-message" name="message" rows="6" placeholder="The problem as you see it, and what success would look like." required></textarea>
         </div>
 
         <p class="honeypot" aria-hidden="true">
@@ -59,35 +41,60 @@ description: "Contact Nishaka Avindya, SEO Specialist in Kadawatha, Sri Lanka, a
         </p>
 
         <input type="hidden" name="_subject" value="New enquiry from nishakaavindya.com">
-        <input type="hidden" name="_next" value="{{ '/contact/thanks/' | absolute_url }}">
+        <input type="hidden" name="_next" value="{{ '/' | absolute_url }}">
 
         <button class="btn btn-primary" type="submit">Send {% include icon.html name="arrow-right" %}</button>
         <p class="field-hint form-note">Your message goes straight to my inbox. No newsletter, no list, no third-party tracking.</p>
       </form>
       {% endif %}
+
+      <div class="contact-alt">
+        <div class="contact-alt-label">Prefer not to use a form?</div>
+        <div class="syndication-links">
+          {% for prof in p.profiles %}{% if prof.label == "LinkedIn" %}
+          <a href="{{ prof.url }}" rel="me noopener" target="_blank">
+            {% include icon.html name="linkedin" %}
+            <span class="label">Connect on LinkedIn</span>
+            {% include icon.html name="arrow-up-right" %}
+          </a>
+          {% endif %}{% endfor %}
+        </div>
+      </div>
     </div>
 
-    <aside>
-      <div class="panel">
-        <h2>What I can help with</h2>
-        <dl class="detail-list">
-          <div>
-            <dt>Technical SEO</dt>
-            <dd>Crawl, indexing and rendering diagnosis<span>Including JavaScript rendering and migration recovery</span></dd>
-          </div>
-          <div>
-            <dt>AI search visibility</dt>
-            <dd>Auditing how a brand is described and cited in answer engines<span>AI Overviews, AI Mode, ChatGPT, Gemini, Perplexity, Grok, Claude</span></dd>
-          </div>
-          <div>
-            <dt>SEO automation</dt>
-            <dd>Google Apps Script tooling for audits and reporting<span>Crawl data, entity monitoring, keyword intent mapping</span></dd>
-          </div>
-          <div>
-            <dt>Based in</dt>
-            <dd>{{ p.locality }}, {{ p.country_name }}<span>Working with teams in any timezone</span></dd>
-          </div>
-        </dl>
+    <aside class="fact-panel">
+      <h2 class="fact-panel-title">What I can help with</h2>
+      <div>
+        <div class="fact-label">Technical SEO</div>
+        <div class="fact-value">Crawl, indexing and rendering diagnosis<span>Including JavaScript rendering and migration recovery</span></div>
+      </div>
+      <div>
+        <div class="fact-label">On-page SEO</div>
+        <div class="fact-value">Titles, headings, internal linking and structured data<span>Written for search engines, answer engines and readers at once</span></div>
+      </div>
+      <div>
+        <div class="fact-label">Off-page SEO</div>
+        <div class="fact-value">Backlink analysis, disavows and link acquisition<span>Prospecting and outreach planned from actual performance</span></div>
+      </div>
+      <div>
+        <div class="fact-label">Keyword and content SEO</div>
+        <div class="fact-value">Keyword research, SERP analysis and intent mapping<span>Competitor research and content audits</span></div>
+      </div>
+      <div>
+        <div class="fact-label">AI search visibility</div>
+        <div class="fact-value">Auditing how a brand is described and cited in answer engines<span>AI Overviews, AI Mode, ChatGPT, Gemini, Perplexity, Grok, Claude</span></div>
+      </div>
+      <div>
+        <div class="fact-label">SEO automation</div>
+        <div class="fact-value">Google Apps Script tooling for audits and reporting<span>Crawl data, entity monitoring, keyword intent mapping</span></div>
+      </div>
+      <div>
+        <div class="fact-label">Availability</div>
+        <div class="fact-value">{{ p.availability }}</div>
+      </div>
+      <div>
+        <div class="fact-label">Based in</div>
+        <div class="fact-value">{{ p.locality }}, {{ p.country_name }}</div>
       </div>
     </aside>
   </div>

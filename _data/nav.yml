@@ -1,3 +1,5 @@
+- label: "Home"
+  url: "/"
 - label: "Guides"
   url: "/guides/"
 - label: "Tools"

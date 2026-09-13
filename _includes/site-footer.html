@@ -3,6 +3,7 @@
   <hr class="hr">
   <div class="site-footer-inner">
     <div>
+      <img class="footer-portrait" src="{{ '/icon.png' | relative_url }}" alt="{{ p.name }}" width="72" height="72">
       <p class="site-footer-name">{{ p.name }} — {{ p.job_title }}, {{ p.worksFor }}</p>
       <p>Technical SEO, on-page optimization, link acquisition and AI search visibility, working from {{ p.locality }}, {{ p.country_name }}.</p>
       <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Work with me {% include icon.html name="arrow-right" %}</a>
@@ -10,11 +11,11 @@
     <div>
       <h2>Elsewhere</h2>
       <ul class="elsewhere">
-        {% for prof in p.profiles %}{% if prof.featured %}
-        <li><a href="{{ prof.url }}" rel="me noopener" target="_blank">{% include icon.html name=prof.icon %} {{ prof.label }}</a></li>
-        {% endif %}{% endfor %}
+        {% for prof in p.profiles %}
+        <li><a href="{{ prof.url }}" rel="me noopener" target="_blank">{% include icon.html name=prof.icon %} <span>{{ prof.label }}</span></a></li>
+        {% endfor %}
       </ul>
     </div>
   </div>
-  <p class="site-footer-legal">© {{ site.time | date: "%Y" }} {{ p.name }}. Built as a static site, no tracking.</p>
+  <p class="site-footer-legal">Designed &amp; built by {{ p.name }} · © {{ site.time | date: "%Y" }} · All rights reserved.</p>
 </footer>

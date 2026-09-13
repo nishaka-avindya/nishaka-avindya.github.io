@@ -20,72 +20,70 @@ description: "Nishaka Avindya is an SEO Specialist in Kadawatha, Sri Lanka, work
         <p>I build SEO tooling in Google Apps Script so that repetitive audits and reporting run themselves rather than eating a day each month. Crawl data, entity monitoring, and keyword intent mapping all live in Google Sheets, scripted end to end.</p>
         <p>Technical SEO is the part I like most — fixing one issue usually uncovers more buried underneath it. On-page, the draw is the opposite: working out what a searcher actually wants and whether the page answers it.</p>
         <p>Day to day I work in Google Search Console, Google Analytics, Semrush, Ahrefs and Screaming Frog, with Google Apps Script for automation and enough HTML and CSS to verify that recommendations were implemented the way they were specified.</p>
-
-        <h2>Background</h2>
       </div>
 
-      <dl class="detail-list" style="margin-bottom:36px">
-        {% for e in p.experience %}
-        <div>
-          <dt>{{ e.dates }}</dt>
-          <dd>{{ e.role }}, {{ e.org }}</dd>
-        </div>
-        {% endfor %}
-      </dl>
+      <h2 class="about-heading">Background</h2>
 
-      <dl class="detail-list">
-        {% for c in p.hasCredential %}
-        <div>
-          <dt>{{ c.dates }}</dt>
-          <dd>{{ c.name }}<span>{{ c.recognizedBy }}{% if c.detail %} · {{ c.detail }}{% endif %}</span></dd>
+      <h3 class="about-subheading">Work</h3>
+      <div class="timeline">
+        {% for e in p.experience %}
+        <div class="timeline-item">
+          <div class="timeline-org">{{ e.org }}</div>
+          <div class="timeline-detail">{{ e.role }}</div>
+          <div class="timeline-dates">{{ e.dates }}</div>
         </div>
         {% endfor %}
-      </dl>
+      </div>
+
+      <h3 class="about-subheading">Education</h3>
+      <div class="timeline">
+        {% for c in p.hasCredential %}
+        <div class="timeline-item">
+          <div class="timeline-org">{{ c.recognizedBy }}</div>
+          <div class="timeline-detail">{{ c.display | default: c.name }}</div>
+          <div class="timeline-dates">{{ c.dates }}</div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
 
-    <aside>
-      <div class="panel" style="margin-bottom:20px">
-        <h2>At a glance</h2>
-        <dl class="detail-list">
-          <div>
-            <dt>Based in</dt>
-            <dd>{{ p.locality }}, {{ p.country_name }}</dd>
-          </div>
-          <div>
-            <dt>Role</dt>
-            <dd>{{ p.job_title }} at {{ p.worksFor }}</dd>
-          </div>
-          <div>
-            <dt>In search since</dt>
-            <dd>2024</dd>
-          </div>
-          <div>
-            <dt>Languages</dt>
-            <dd>{{ p.knowsLanguage | join: ", " }}</dd>
-          </div>
-        </dl>
+    <aside class="fact-panel">
+      <div>
+        <div class="fact-label">Based in</div>
+        <div class="fact-value">{{ p.locality }}, {{ p.country_name }}</div>
       </div>
-
-      <div class="panel">
-        <h2>Toolset</h2>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          {% for t in p.toolset %}<span class="tag">{{ t }}</span>{% endfor %}
+      <div>
+        <div class="fact-label">Role</div>
+        <div class="fact-value">{{ p.job_title }} at {{ p.worksFor }}</div>
+      </div>
+      <div>
+        <div class="fact-label">In search since</div>
+        <div class="fact-value">2024</div>
+      </div>
+      <div>
+        <div class="fact-label">Availability</div>
+        <div class="fact-value">{{ p.availability }}</div>
+      </div>
+      <div>
+        <div class="fact-label">Languages</div>
+        <div class="fact-value">{{ p.knowsLanguage | join: ", " }}</div>
+      </div>
+      <div>
+        <div class="fact-label">Toolset</div>
+        <div class="toolset">
+          {% for t in p.toolset %}
+          <div class="toolset-item">
+            {% if t.logo %}
+            <span class="toolset-mark" style="background-image:url('{{ '/assets/img/tools/' | append: t.logo | relative_url }}')" role="img" aria-label="{{ t.name }}"></span>
+            {% else %}
+            <span class="toolset-mark toolset-mark--icon" aria-hidden="true">{% include icon.html name=t.icon %}</span>
+            {% endif %}
+            <span class="toolset-name">{{ t.name }}</span>
+          </div>
+          {% endfor %}
         </div>
       </div>
     </aside>
   </div>
 
-  <section style="margin-top:64px">
-    <hr class="hr">
-    <h2 class="section-label">Elsewhere</h2>
-    <div class="syndication-links syndication-links--grid">
-      {% for prof in p.profiles %}
-      <a href="{{ prof.url }}" rel="me noopener" target="_blank">
-        {% include icon.html name=prof.icon %}
-        <span class="label">{{ prof.label }}</span>
-        {% include icon.html name="arrow-up-right" %}
-      </a>
-      {% endfor %}
-    </div>
-  </section>
 </main>

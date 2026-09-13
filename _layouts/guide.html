@@ -35,7 +35,8 @@ layout: default
       {{ content }}
     </div>
 
-    {% if page.steps %}
+    {% assign n_steps = page.steps | size %}
+    {% if n_steps > 0 %}
     <section class="prose">
       <h2>{{ page.steps_title | default: "Run this yourself" }}</h2>
       <ol class="steps">
@@ -52,7 +53,8 @@ layout: default
     </section>
     {% endif %}
 
-    {% if page.faq %}
+    {% assign n_faq = page.faq | size %}
+    {% if n_faq > 0 %}
     <section class="prose">
       <h2>{{ page.faq_title | default: "Questions people ask about this" }}</h2>
       <div class="faq">
@@ -66,7 +68,8 @@ layout: default
     </section>
     {% endif %}
 
-    {% if page.syndication or page.video %}
+    {% assign n_syn = page.syndication | size %}
+    {% if n_syn > 0 or page.video %}
     <section class="syndication">
       <hr class="hr">
       <h2 class="section-label">Also published as</h2>
@@ -80,7 +83,7 @@ layout: default
           </div>
         </div>
         {% endif %}
-        {% if page.syndication %}
+        {% if n_syn > 0 %}
         <div>
           <div class="syndication-label">Written briefs</div>
           <div class="syndication-links">

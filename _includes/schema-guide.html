@@ -17,11 +17,11 @@
       "inLanguage": "en"
       {% if page.keywords %},"keywords": {{ page.keywords | jsonify }}{% endif %}
       {% if page.proficiency %},"proficiencyLevel": {{ page.proficiency | jsonify }}{% endif %}
-      {% if page.syndication %},"sameAs": [
+      {% assign n_syn = page.syndication | size %}{% if n_syn > 0 %},"sameAs": [
         {% for s in page.syndication %}"{{ s.href }}"{% unless forloop.last %},{% endunless %}
         {% endfor %}
       ]{% endif %}
-    }{% if page.faq %},
+    }{% assign n_faq = page.faq | size %}{% if n_faq > 0 %},
     {
       "@type": "FAQPage",
       "@id": "{{ page.url | absolute_url }}#faq",
@@ -34,7 +34,7 @@
         }{% unless forloop.last %},{% endunless %}
         {% endfor %}
       ]
-    }{% endif %}{% if page.steps %},
+    }{% endif %}{% assign n_steps = page.steps | size %}{% if n_steps > 0 %},
     {
       "@type": "HowTo",
       "@id": "{{ page.url | absolute_url }}#howto",
