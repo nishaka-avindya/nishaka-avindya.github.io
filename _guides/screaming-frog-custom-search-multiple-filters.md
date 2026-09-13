@@ -1,7 +1,7 @@
 ---
 title: "Screaming Frog Custom Search: Using Multiple Filters to Find Stale Content"
 eyebrow: "Guide · Technical SEO"
-description: "How to use Screaming Frog's Custom Search with multiple filters to find content that used to be correct and no longer is — wrong-region currency, old NAP, and discontinued product names."
+description: "Use Screaming Frog's Custom Search with multiple filters in one crawl to find wrong-region currency, old NAP and discontinued product names."
 date: 2026-09-12
 keywords:
   - Screaming Frog
@@ -15,6 +15,8 @@ meta:
   - label: "Level"
     value: "Intermediate"
 proficiency: "Intermediate"
+meta_title: "Screaming Frog Custom Search: Find Stale Content"
+standfirst: "How to use Screaming Frog's Custom Search with multiple filters to find content that used to be correct and no longer is — wrong-region currency, old NAP, and discontinued product names."
 ---
 
 Most site audits look for things that are missing. Broken links, missing meta tags, thin pages. Fewer audits look for the opposite problem: content that used to be correct and quietly stopped being correct. Nobody searches for it because nothing is technically "wrong" — the page renders, the field isn't empty, the crawler finds no error. The content is just stale.

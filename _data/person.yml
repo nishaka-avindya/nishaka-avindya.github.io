@@ -94,7 +94,7 @@ alumniOf:
     type: "EducationalOrganization"
 hasCredential:
   - category: "degree"
-    name: "Bachelor of Management Studies (Honours), Marketing Management"
+    name: "Bachelor of Management Studies (Honours)"
     recognizedBy: "The Open University of Sri Lanka"
     recognizedByType: "CollegeOrUniversity"
     dates: "Nov 2019 – Nov 2025"

@@ -1,5 +1,7 @@
 {% assign p = site.data.person %}
-{% if page.url == "/" %}
+{% if page.meta_title %}
+  {% assign page_title = page.meta_title %}
+{% elsif page.url == "/" %}
   {% assign page_title = site.title | append: " — " | append: site.tagline %}
 {% else %}
   {% assign page_title = page.title | append: " — " | append: site.title %}
@@ -13,7 +15,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>{{ page_title }}</title>
+<title>{{ page_title | escape }}</title>
 <meta name="description" content="{{ page_description | escape }}">
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 {% if page.sitemap == false %}<meta name="robots" content="noindex, follow">{% endif %}
