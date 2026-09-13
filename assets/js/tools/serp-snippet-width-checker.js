@@ -112,7 +112,10 @@
   }
 
   function update() {
-    var title = el.title.value;
+    if (/[\r\n]/.test(el.title.value)) {
+      el.title.value = el.title.value.replace(/[\r\n]+/g, " ");
+    }
+    var title = el.title.value.replace(/\s+/g, " ").trim();
     var desc = el.desc.value.replace(/\s+/g, " ").trim();
 
     var titleWidth = measure(title, TITLE_FONT);
@@ -138,6 +141,10 @@
   ["input", "change"].forEach(function (evt) {
     el.title.addEventListener(evt, update);
     el.desc.addEventListener(evt, update);
+  });
+
+  el.title.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") event.preventDefault();
   });
 
   if (document.fonts && document.fonts.ready) {

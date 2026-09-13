@@ -986,6 +986,7 @@ img { max-width: 100%; height: auto; }
 .input:focus-visible { border-color: var(--color-accent-300); }
 .input::placeholder { color: var(--color-neutral-500); opacity: 1; }
 textarea.input { resize: vertical; font-family: var(--font-body); }
+textarea.input--single { resize: none; overflow: hidden; }
 
 .site-footer {
   max-width: var(--wrap);
