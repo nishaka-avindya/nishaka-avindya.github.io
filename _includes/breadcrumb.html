@@ -1,0 +1,20 @@
+{% unless page.sitemap == false or page.url == "/" %}
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ '/' | relative_url }}">Home</a></li>
+    {% if page.url == "/guides/" %}
+    <li aria-current="page">Guides</li>
+    {% elsif page.url == "/tools/" %}
+    <li aria-current="page">Tools</li>
+    {% elsif page.layout == "guide" %}
+    <li><a href="{{ '/guides/' | relative_url }}">Guides</a></li>
+    <li aria-current="page">{{ page.title }}</li>
+    {% elsif page.layout == "tool" %}
+    <li><a href="{{ '/tools/' | relative_url }}">Tools</a></li>
+    <li aria-current="page">{{ page.title }}</li>
+    {% else %}
+    <li aria-current="page">{{ page.title }}</li>
+    {% endif %}
+  </ol>
+</nav>
+{% endunless %}
