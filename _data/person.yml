@@ -15,6 +15,11 @@ intro: >-
 since: >-
   I've worked in search since 2024, and I'm currently Search Engine
   Optimization Specialist at Trident Media Works.
+alternateName:
+  - "Nish"
+  - "A. G. N. Avindya"
+  - "A. G. Nishaka Avindya"
+  - "Akurugoda Gamage Nishaka Avindya"
 locality: "Kadawatha"
 region: "Western Province"
 country: "LK"
@@ -62,6 +67,9 @@ profiles:
   - label: "Instagram"
     url: "https://www.instagram.com/nishaka_avindya/"
     icon: "instagram"
+  - label: "ORCID"
+    url: "https://orcid.org/0009-0006-1969-9773"
+    icon: "orcid"
 knowsAbout:
   - "Search Engine Optimization"
   - "Technical SEO"
@@ -140,3 +148,16 @@ toolset:
     icon: "layers"
   - name: "HTML & CSS"
     icon: "code"
+publications:
+  - title: "Investigating the Effectiveness of SEO Implementation Among SMEs in Kadawatha, Sri Lanka"
+    type: "Bachelor's Dissertation (Hons)"
+    institution: "The Open University of Sri Lanka"
+    date_display: "November 2025"
+    date_iso: "2025-11-06"
+    doi: "10.5281/zenodo.22840028"
+    url: "https://doi.org/10.5281/zenodo.22840028"
+    summary: >-
+      Original primary research surveying 54 SMEs in Kadawatha on the
+      barriers to SEO adoption. Finds budget constraints operate as a
+      "gatekeeping barrier" that determines whether businesses can act on
+      SEO awareness or digital skills at all.

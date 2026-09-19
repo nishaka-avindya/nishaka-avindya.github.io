@@ -16,6 +16,7 @@
       "@type": "Person",
       "@id": "{{ site.url }}/#person",
       "name": {{ p.name | jsonify }},
+      "alternateName": {{ p.alternateName | jsonify }},
       "url": "{{ site.url }}/",
       "mainEntityOfPage": { "@id": "{{ site.url }}/about/#webpage" },
       "jobTitle": {{ p.job_title | jsonify }},
@@ -58,7 +59,19 @@
         {% for prof in p.profiles %}"{{ prof.url }}"{% unless forloop.last %},{% endunless %}
         {% endfor %}
       ]
-    }{% unless page.profile_page %},
+    }{% for pub in p.publications %},
+    {
+      "@type": "Thesis",
+      "@id": "{{ pub.url }}",
+      "name": {{ pub.title | jsonify }},
+      "description": {{ pub.summary | strip_newlines | strip | jsonify }},
+      "author": { "@id": "{{ site.url }}/#person" },
+      "url": "{{ pub.url }}",
+      "sameAs": "{{ pub.url }}",
+      "datePublished": "{{ pub.date_iso }}",
+      "publisher": { "@type": "Organization", "name": "Zenodo", "url": "https://zenodo.org" },
+      "inLanguage": "en"
+    }{% endfor %}{% unless page.profile_page %},
     {
       "@type": "WebPage",
       "@id": "{{ page.url | absolute_url }}#webpage",
