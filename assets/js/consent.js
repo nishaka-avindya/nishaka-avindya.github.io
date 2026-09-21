@@ -1,10 +1,11 @@
 (function(){
   "use strict";
 
-  var STORAGE_KEY = "consentChoice";
+  var CHOICE_KEY = "consentChoice";
+  var COUNTRY_KEY = "consentCountry";
   var GEO_ENDPOINT = "https://ipapi.co/json/";
 
-  var REGULATED_COUNTRIES = [
+  var OPT_IN_COUNTRIES = [
     "AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IE",
     "IT","LV","LT","LU","MT","NL","PL","PT","RO","SK","SI","ES","SE",
     "IS","LI","NO",
@@ -18,17 +19,16 @@
     });
   }
 
-  function storedChoice(){
-    try {
-      var v = localStorage.getItem(STORAGE_KEY);
-      return v === "granted" || v === "denied" ? v : null;
-    } catch (e) {
-      return null;
-    }
+  function hasGPC(){
+    return navigator.globalPrivacyControl === true;
   }
 
-  function storeChoice(value){
-    try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
+  function getStored(key){
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+  }
+
+  function setStored(key, value){
+    try { localStorage.setItem(key, value); } catch (e) {}
   }
 
   function injectStyles(){
@@ -46,14 +46,24 @@
       + ".consent-accept{background:#1f6f5c;color:#fff;}"
       + ".consent-reject{background:transparent;color:#1c1b19;border-color:#e6e0d4;}"
       + "@media (max-width:520px){.consent-bar{flex-direction:column;align-items:stretch;}"
-      + ".consent-actions{justify-content:flex-end;}}";
+      + ".consent-actions{justify-content:flex-end;}}"
+      + ".privacy-choices-link{position:fixed;left:12px;bottom:12px;z-index:9998;"
+      + "font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;"
+      + "font-size:12px;color:#4a473f;background:#fffdf9;border:1px solid #e6e0d4;"
+      + "border-radius:100px;padding:6px 12px;text-decoration:underline;cursor:pointer;}"
+      + ".privacy-choices-panel{position:fixed;left:12px;bottom:48px;z-index:9999;"
+      + "background:#fffdf9;border:1px solid #e6e0d4;border-radius:10px;padding:16px;"
+      + "max-width:280px;box-shadow:0 1px 6px rgba(28,27,25,.1);"
+      + "font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}"
+      + ".privacy-choices-panel p{margin:0 0 10px;font-size:12.5px;color:#1c1b19;line-height:1.45;}"
+      + ".privacy-choices-panel button{font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;"
+      + "border-radius:6px;padding:7px 12px;border:1px solid #e6e0d4;background:#faf7f2;width:100%;}";
     var style = document.createElement("style");
     style.textContent = css;
     document.head.appendChild(style);
   }
 
-  function showBanner(){
-    injectStyles();
+  function showOptInBanner(){
     var bar = document.createElement("div");
     bar.className = "consent-bar";
     bar.setAttribute("role", "region");
@@ -69,20 +79,89 @@
 
     bar.querySelector(".consent-accept").addEventListener("click", function(){
       gtagUpdate(true);
-      storeChoice("granted");
+      setStored(CHOICE_KEY, "granted");
       bar.remove();
     });
     bar.querySelector(".consent-reject").addEventListener("click", function(){
       gtagUpdate(false);
-      storeChoice("denied");
+      setStored(CHOICE_KEY, "denied");
       bar.remove();
     });
   }
 
+  function showOptOutLink(){
+    var link = document.createElement("button");
+    link.type = "button";
+    link.className = "privacy-choices-link";
+    link.textContent = "Your Privacy Choices";
+    document.body.appendChild(link);
+
+    link.addEventListener("click", function(){
+      var existingPanel = document.querySelector(".privacy-choices-panel");
+      if (existingPanel) { existingPanel.remove(); return; }
+
+      var currentlyGranted = getStored(CHOICE_KEY) !== "denied";
+      var panel = document.createElement("div");
+      panel.className = "privacy-choices-panel";
+      panel.innerHTML =
+        "<p>This site uses analytics cookies. You can opt out of the sale/sharing "
+        + "of your data for analytics at any time.</p>"
+        + "<button type=\"button\">" + (currentlyGranted ? "Opt out of analytics" : "Opt back in") + "</button>";
+      document.body.appendChild(panel);
+
+      panel.querySelector("button").addEventListener("click", function(){
+        var nowGranted = getStored(CHOICE_KEY) === "denied";
+        gtagUpdate(nowGranted);
+        setStored(CHOICE_KEY, nowGranted ? "granted" : "denied");
+        panel.remove();
+      });
+    });
+  }
+
+  function handleCountry(country){
+    setStored(COUNTRY_KEY, country || "");
+
+    if (country && OPT_IN_COUNTRIES.indexOf(country) !== -1) {
+      // GDPR / UK-GDPR / Swiss FADP / LGPD style: opt-in, blocked until consent.
+      showOptInBanner();
+      return;
+    }
+
+    // Everyone else (including US): opt-out model, or no specific regime.
+    // Analytics is allowed by default; US visitors get a persistent,
+    // always-available opt-out control per CCPA/CPRA-style "Do Not Sell
+    // or Share" requirements. This applies to all US visitors, not a
+    // curated state list, since state privacy laws are added often and
+    // a stale list would under-cover new states.
+    gtagUpdate(true);
+    if (country === "US") {
+      showOptOutLink();
+    }
+  }
+
   function init(){
-    var existing = storedChoice();
-    if (existing) {
-      gtagUpdate(existing === "granted");
+    injectStyles();
+
+    // Global Privacy Control: a recognized, binding opt-out signal
+    // (CCPA/CPRA and several other US states). Honor it immediately,
+    // wherever the visitor is, no banner needed either way.
+    if (hasGPC()) {
+      gtagUpdate(false);
+      setStored(CHOICE_KEY, "denied");
+      return;
+    }
+
+    var existingChoice = getStored(CHOICE_KEY);
+    var cachedCountry = getStored(COUNTRY_KEY);
+
+    if (existingChoice) {
+      gtagUpdate(existingChoice === "granted");
+      if (cachedCountry === "US") showOptOutLink();
+      return;
+    }
+
+    if (cachedCountry) {
+      handleCountry(cachedCountry);
       return;
     }
 
@@ -92,15 +171,11 @@
         return res.json();
       })
       .then(function(data){
-        var country = data && data.country_code;
-        if (country && REGULATED_COUNTRIES.indexOf(country) === -1) {
-          gtagUpdate(true);
-        } else {
-          showBanner();
-        }
+        handleCountry(data && data.country_code);
       })
       .catch(function(){
-        showBanner();
+        // Fail safe: treat unknown location as opt-in-required.
+        showOptInBanner();
       });
   }
 
