@@ -51,6 +51,7 @@ meta_title: "About Nishaka Avindya — SEO Specialist in Sri Lanka"
       {% assign n_recs = recs | size %}
       {% if n_recs > 0 %}
       <h2 class="about-heading" id="recommendations">Recommendations</h2>
+      <p class="rec-intro">Written on LinkedIn and shown here as written. Each person's position is as of the date they wrote it.</p>
       <div class="rec-list">
         {% for r in recs %}
         <figure class="rec" id="{{ r.id }}">
@@ -60,8 +61,11 @@ meta_title: "About Nishaka Avindya — SEO Specialist in Sri Lanka"
           </blockquote>
           <figcaption class="rec-source">
             <a class="rec-name" href="{{ r.url }}" rel="noopener" target="_blank">{{ r.name | escape }}</a>
-            <span class="rec-relationship">{{ r.relationship | escape }}</span>
-            <time class="rec-date" datetime="{{ r.date }}">{{ r.date | date: "%B %Y" }}</time>
+            {% if r.title and r.company %}<span class="rec-role">{{ r.title | escape }}, {{ r.company | escape }}</span>
+            {% elsif r.title %}<span class="rec-role">{{ r.title | escape }}</span>
+            {% elsif r.company %}<span class="rec-role">{{ r.company | escape }}</span>
+            {% endif %}<span class="rec-relationship">{{ r.relationship | escape }}</span>
+            <span class="rec-date">LinkedIn recommendation · <time datetime="{{ r.date }}">{{ r.date | date: "%B %-d, %Y" }}</time></span>
           </figcaption>
         </figure>
         {% endfor %}

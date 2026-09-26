@@ -12,7 +12,9 @@
       "author": {
         "@type": "Person",
         "name": {{ r.name | jsonify }},
-        "url": {{ r.url | jsonify }}
+        "url": {{ r.url | jsonify }}{% if r.title %},
+        "jobTitle": {{ r.title | jsonify }}{% endif %}{% if r.company %},
+        "worksFor": { "@type": "Organization", "name": {{ r.company | jsonify }} }{% endif %}
       },
       "reviewBody": {{ r.text | join: " " | jsonify }},
       "datePublished": {{ r.date | jsonify }},

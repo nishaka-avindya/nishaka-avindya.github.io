@@ -1,6 +1,8 @@
 - id: "recommendation-yumiko-perera-2026-09"
   name: "Yumiko Perera"
   url: "https://www.linkedin.com/in/yumiko-perera-96366a226"
+  title: "Content Team Lead"
+  company: "Trident Media Works"
   relationship: "Yumiko worked with Nishaka but on different teams"
   date: "2026-09-25"
   text:
@@ -11,6 +13,8 @@
 - id: "recommendation-chathuka-upeksha-2026-08"
   name: "Chathuka Upeksha"
   url: "https://www.linkedin.com/in/chathuka-upeksha"
+  title: "Search Engine Optimization Team Lead"
+  company: "Trident Media Works"
   relationship: "Chathuka managed Nishaka directly"
   date: "2026-08-07"
   text:
